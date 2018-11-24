@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.archy.cash.dao.interfaces.NetbarMachineMapper" >
+  <resultMap id="BaseResultMap" type="com.archy.cash.entity.NetbarMachine" >
+    <id column="machineID" property="machineid" jdbcType="INTEGER" />
+    <result column="machineName" property="machinename" jdbcType="VARCHAR" />
+    <result column="areaId" property="areaid" jdbcType="INTEGER" />
+    <result column="state" property="state" jdbcType="BIT" />
+    <result column="dataVersion" property="dataversion" jdbcType="INTEGER" />
+    <result column="gid" property="gid" jdbcType="INTEGER" />
+    <result column="mac" property="mac" jdbcType="VARCHAR" />
+    <result column="ip" property="ip" jdbcType="VARCHAR" />
+    <result column="ipMask" property="ipmask" jdbcType="VARCHAR" />
+    <result column="createDate" property="createdate" jdbcType="TIMESTAMP" />
+    <result column="lastUpdateDate" property="lastupdatedate" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    machineID, machineName, areaId, state, dataVersion, gid, mac, ip, ipMask, createDate, 
+    lastUpdateDate
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from netbar_machine
+    where machineID = #{machineid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from netbar_machine
+    where machineID = #{machineid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.archy.cash.entity.NetbarMachine" >
+    insert into netbar_machine (machineID, machineName, areaId, 
+      state, dataVersion, gid, 
+      mac, ip, ipMask, createDate, 
+      lastUpdateDate)
+    values (#{machineid,jdbcType=INTEGER}, #{machinename,jdbcType=VARCHAR}, #{areaid,jdbcType=INTEGER}, 
+      #{state,jdbcType=BIT}, #{dataversion,jdbcType=INTEGER}, #{gid,jdbcType=INTEGER}, 
+      #{mac,jdbcType=VARCHAR}, #{ip,jdbcType=VARCHAR}, #{ipmask,jdbcType=VARCHAR}, #{createdate,jdbcType=TIMESTAMP}, 
+      #{lastupdatedate,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.archy.cash.entity.NetbarMachine" >
+    insert into netbar_machine
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="machineid != null" >
+        machineID,
+      </if>
+      <if test="machinename != null" >
+        machineName,
+      </if>
+      <if test="areaid != null" >
+        areaId,
+      </if>
+      <if test="state != null" >
+        state,
+      </if>
+      <if test="dataversion != null" >
+        dataVersion,
+      </if>
+      <if test="gid != null" >
+        gid,
+      </if>
+      <if test="mac != null" >
+        mac,
+      </if>
+      <if test="ip != null" >
+        ip,
+      </if>
+      <if test="ipmask != null" >
+        ipMask,
+      </if>
+      <if test="createdate != null" >
+        createDate,
+      </if>
+      <if test="lastupdatedate != null" >
+        lastUpdateDate,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="machineid != null" >
+        #{machineid,jdbcType=INTEGER},
+      </if>
+      <if test="machinename != null" >
+        #{machinename,jdbcType=VARCHAR},
+      </if>
+      <if test="areaid != null" >
+        #{areaid,jdbcType=INTEGER},
+      </if>
+      <if test="state != null" >
+        #{state,jdbcType=BIT},
+      </if>
+      <if test="dataversion != null" >
+        #{dataversion,jdbcType=INTEGER},
+      </if>
+      <if test="gid != null" >
+        #{gid,jdbcType=INTEGER},
+      </if>
+      <if test="mac != null" >
+        #{mac,jdbcType=VARCHAR},
+      </if>
+      <if test="ip != null" >
+        #{ip,jdbcType=VARCHAR},
+      </if>
+      <if test="ipmask != null" >
+        #{ipmask,jdbcType=VARCHAR},
+      </if>
+      <if test="createdate != null" >
+        #{createdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastupdatedate != null" >
+        #{lastupdatedate,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.archy.cash.entity.NetbarMachine" >
+    update netbar_machine
+    <set >
+      <if test="machinename != null" >
+        machineName = #{machinename,jdbcType=VARCHAR},
+      </if>
+      <if test="areaid != null" >
+        areaId = #{areaid,jdbcType=INTEGER},
+      </if>
+      <if test="state != null" >
+        state = #{state,jdbcType=BIT},
+      </if>
+      <if test="dataversion != null" >
+        dataVersion = #{dataversion,jdbcType=INTEGER},
+      </if>
+      <if test="gid != null" >
+        gid = #{gid,jdbcType=INTEGER},
+      </if>
+      <if test="mac != null" >
+        mac = #{mac,jdbcType=VARCHAR},
+      </if>
+      <if test="ip != null" >
+        ip = #{ip,jdbcType=VARCHAR},
+      </if>
+      <if test="ipmask != null" >
+        ipMask = #{ipmask,jdbcType=VARCHAR},
+      </if>
+      <if test="createdate != null" >
+        createDate = #{createdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastupdatedate != null" >
+        lastUpdateDate = #{lastupdatedate,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where machineID = #{machineid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.archy.cash.entity.NetbarMachine" >
+    update netbar_machine
+    set machineName = #{machinename,jdbcType=VARCHAR},
+      areaId = #{areaid,jdbcType=INTEGER},
+      state = #{state,jdbcType=BIT},
+      dataVersion = #{dataversion,jdbcType=INTEGER},
+      gid = #{gid,jdbcType=INTEGER},
+      mac = #{mac,jdbcType=VARCHAR},
+      ip = #{ip,jdbcType=VARCHAR},
+      ipMask = #{ipmask,jdbcType=VARCHAR},
+      createDate = #{createdate,jdbcType=TIMESTAMP},
+      lastUpdateDate = #{lastupdatedate,jdbcType=TIMESTAMP}
+    where machineID = #{machineid,jdbcType=INTEGER}
+  </update>
+</mapper>

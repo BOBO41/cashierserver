@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.archy.cash.dao.interfaces.NetbarRechargeOrderMapper" >
+  <resultMap id="BaseResultMap" type="com.archy.cash.entity.NetbarRechargeOrder" >
+    <id column="rechargeOrderID" property="rechargeorderid" jdbcType="BIGINT" />
+    <result column="rechargeCompaignID" property="rechargecompaignid" jdbcType="INTEGER" />
+    <result column="memberID" property="memberid" jdbcType="BIGINT" />
+    <result column="rechargeWay" property="rechargeway" jdbcType="BIT" />
+    <result column="rechargeType" property="rechargetype" jdbcType="BIT" />
+    <result column="deposit" property="deposit" jdbcType="DECIMAL" />
+    <result column="rechargeFee" property="rechargefee" jdbcType="DECIMAL" />
+    <result column="adwardFee" property="adwardfee" jdbcType="DECIMAL" />
+    <result column="state" property="state" jdbcType="BIT" />
+    <result column="posAccount" property="posaccount" jdbcType="INTEGER" />
+    <result column="rechargeDate" property="rechargedate" jdbcType="TIMESTAMP" />
+    <result column="dataVersion" property="dataversion" jdbcType="INTEGER" />
+    <result column="rechargeSource" property="rechargesource" jdbcType="BIT" />
+    <result column="gid" property="gid" jdbcType="INTEGER" />
+    <result column="lastUpdateDate" property="lastupdatedate" jdbcType="TIMESTAMP" />
+    <result column="oldRechargeOrderID" property="oldrechargeorderid" jdbcType="BIGINT" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    rechargeOrderID, rechargeCompaignID, memberID, rechargeWay, rechargeType, deposit, 
+    rechargeFee, adwardFee, state, posAccount, rechargeDate, dataVersion, rechargeSource, 
+    gid, lastUpdateDate, oldRechargeOrderID
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from netbar_recharge_order
+    where rechargeOrderID = #{rechargeorderid,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from netbar_recharge_order
+    where rechargeOrderID = #{rechargeorderid,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.archy.cash.entity.NetbarRechargeOrder" >
+    insert into netbar_recharge_order (rechargeOrderID, rechargeCompaignID, 
+      memberID, rechargeWay, rechargeType, 
+      deposit, rechargeFee, adwardFee, 
+      state, posAccount, rechargeDate, 
+      dataVersion, rechargeSource, gid, 
+      lastUpdateDate, oldRechargeOrderID)
+    values (#{rechargeorderid,jdbcType=BIGINT}, #{rechargecompaignid,jdbcType=INTEGER}, 
+      #{memberid,jdbcType=BIGINT}, #{rechargeway,jdbcType=BIT}, #{rechargetype,jdbcType=BIT}, 
+      #{deposit,jdbcType=DECIMAL}, #{rechargefee,jdbcType=DECIMAL}, #{adwardfee,jdbcType=DECIMAL}, 
+      #{state,jdbcType=BIT}, #{posaccount,jdbcType=INTEGER}, #{rechargedate,jdbcType=TIMESTAMP}, 
+      #{dataversion,jdbcType=INTEGER}, #{rechargesource,jdbcType=BIT}, #{gid,jdbcType=INTEGER}, 
+      #{lastupdatedate,jdbcType=TIMESTAMP}, #{oldrechargeorderid,jdbcType=BIGINT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.archy.cash.entity.NetbarRechargeOrder" >
+    insert into netbar_recharge_order
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="rechargeorderid != null" >
+        rechargeOrderID,
+      </if>
+      <if test="rechargecompaignid != null" >
+        rechargeCompaignID,
+      </if>
+      <if test="memberid != null" >
+        memberID,
+      </if>
+      <if test="rechargeway != null" >
+        rechargeWay,
+      </if>
+      <if test="rechargetype != null" >
+        rechargeType,
+      </if>
+      <if test="deposit != null" >
+        deposit,
+      </if>
+      <if test="rechargefee != null" >
+        rechargeFee,
+      </if>
+      <if test="adwardfee != null" >
+        adwardFee,
+      </if>
+      <if test="state != null" >
+        state,
+      </if>
+      <if test="posaccount != null" >
+        posAccount,
+      </if>
+      <if test="rechargedate != null" >
+        rechargeDate,
+      </if>
+      <if test="dataversion != null" >
+        dataVersion,
+      </if>
+      <if test="rechargesource != null" >
+        rechargeSource,
+      </if>
+      <if test="gid != null" >
+        gid,
+      </if>
+      <if test="lastupdatedate != null" >
+        lastUpdateDate,
+      </if>
+      <if test="oldrechargeorderid != null" >
+        oldRechargeOrderID,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="rechargeorderid != null" >
+        #{rechargeorderid,jdbcType=BIGINT},
+      </if>
+      <if test="rechargecompaignid != null" >
+        #{rechargecompaignid,jdbcType=INTEGER},
+      </if>
+      <if test="memberid != null" >
+        #{memberid,jdbcType=BIGINT},
+      </if>
+      <if test="rechargeway != null" >
+        #{rechargeway,jdbcType=BIT},
+      </if>
+      <if test="rechargetype != null" >
+        #{rechargetype,jdbcType=BIT},
+      </if>
+      <if test="deposit != null" >
+        #{deposit,jdbcType=DECIMAL},
+      </if>
+      <if test="rechargefee != null" >
+        #{rechargefee,jdbcType=DECIMAL},
+      </if>
+      <if test="adwardfee != null" >
+        #{adwardfee,jdbcType=DECIMAL},
+      </if>
+      <if test="state != null" >
+        #{state,jdbcType=BIT},
+      </if>
+      <if test="posaccount != null" >
+        #{posaccount,jdbcType=INTEGER},
+      </if>
+      <if test="rechargedate != null" >
+        #{rechargedate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="dataversion != null" >
+        #{dataversion,jdbcType=INTEGER},
+      </if>
+      <if test="rechargesource != null" >
+        #{rechargesource,jdbcType=BIT},
+      </if>
+      <if test="gid != null" >
+        #{gid,jdbcType=INTEGER},
+      </if>
+      <if test="lastupdatedate != null" >
+        #{lastupdatedate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="oldrechargeorderid != null" >
+        #{oldrechargeorderid,jdbcType=BIGINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.archy.cash.entity.NetbarRechargeOrder" >
+    update netbar_recharge_order
+    <set >
+      <if test="rechargecompaignid != null" >
+        rechargeCompaignID = #{rechargecompaignid,jdbcType=INTEGER},
+      </if>
+      <if test="memberid != null" >
+        memberID = #{memberid,jdbcType=BIGINT},
+      </if>
+      <if test="rechargeway != null" >
+        rechargeWay = #{rechargeway,jdbcType=BIT},
+      </if>
+      <if test="rechargetype != null" >
+        rechargeType = #{rechargetype,jdbcType=BIT},
+      </if>
+      <if test="deposit != null" >
+        deposit = #{deposit,jdbcType=DECIMAL},
+      </if>
+      <if test="rechargefee != null" >
+        rechargeFee = #{rechargefee,jdbcType=DECIMAL},
+      </if>
+      <if test="adwardfee != null" >
+        adwardFee = #{adwardfee,jdbcType=DECIMAL},
+      </if>
+      <if test="state != null" >
+        state = #{state,jdbcType=BIT},
+      </if>
+      <if test="posaccount != null" >
+        posAccount = #{posaccount,jdbcType=INTEGER},
+      </if>
+      <if test="rechargedate != null" >
+        rechargeDate = #{rechargedate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="dataversion != null" >
+        dataVersion = #{dataversion,jdbcType=INTEGER},
+      </if>
+      <if test="rechargesource != null" >
+        rechargeSource = #{rechargesource,jdbcType=BIT},
+      </if>
+      <if test="gid != null" >
+        gid = #{gid,jdbcType=INTEGER},
+      </if>
+      <if test="lastupdatedate != null" >
+        lastUpdateDate = #{lastupdatedate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="oldrechargeorderid != null" >
+        oldRechargeOrderID = #{oldrechargeorderid,jdbcType=BIGINT},
+      </if>
+    </set>
+    where rechargeOrderID = #{rechargeorderid,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.archy.cash.entity.NetbarRechargeOrder" >
+    update netbar_recharge_order
+    set rechargeCompaignID = #{rechargecompaignid,jdbcType=INTEGER},
+      memberID = #{memberid,jdbcType=BIGINT},
+      rechargeWay = #{rechargeway,jdbcType=BIT},
+      rechargeType = #{rechargetype,jdbcType=BIT},
+      deposit = #{deposit,jdbcType=DECIMAL},
+      rechargeFee = #{rechargefee,jdbcType=DECIMAL},
+      adwardFee = #{adwardfee,jdbcType=DECIMAL},
+      state = #{state,jdbcType=BIT},
+      posAccount = #{posaccount,jdbcType=INTEGER},
+      rechargeDate = #{rechargedate,jdbcType=TIMESTAMP},
+      dataVersion = #{dataversion,jdbcType=INTEGER},
+      rechargeSource = #{rechargesource,jdbcType=BIT},
+      gid = #{gid,jdbcType=INTEGER},
+      lastUpdateDate = #{lastupdatedate,jdbcType=TIMESTAMP},
+      oldRechargeOrderID = #{oldrechargeorderid,jdbcType=BIGINT}
+    where rechargeOrderID = #{rechargeorderid,jdbcType=BIGINT}
+  </update>
+</mapper>

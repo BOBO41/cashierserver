@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.archy.cash.dao.interfaces.NetbarBaseInfoMapper" >
+  <resultMap id="BaseResultMap" type="com.archy.cash.entity.NetbarBaseInfo" >
+    <id column="gid" property="gid" jdbcType="INTEGER" />
+    <result column="netBarName" property="netbarname" jdbcType="INTEGER" />
+    <result column="ifChain" property="ifchain" jdbcType="BIT" />
+    <result column="tid" property="tid" jdbcType="INTEGER" />
+    <result column="proviceID" property="proviceid" jdbcType="TINYINT" />
+    <result column="cityID" property="cityid" jdbcType="INTEGER" />
+    <result column="districtID" property="districtid" jdbcType="INTEGER" />
+    <result column="address" property="address" jdbcType="VARCHAR" />
+    <result column="pcNum" property="pcnum" jdbcType="INTEGER" />
+    <result column="principal" property="principal" jdbcType="VARCHAR" />
+    <result column="thePhone" property="thephone" jdbcType="VARCHAR" />
+    <result column="setupTime" property="setuptime" jdbcType="TIMESTAMP" />
+    <result column="dataVersion" property="dataversion" jdbcType="INTEGER" />
+    <result column="lat" property="lat" jdbcType="DECIMAL" />
+    <result column="lng" property="lng" jdbcType="DECIMAL" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    gid, netBarName, ifChain, tid, proviceID, cityID, districtID, address, pcNum, principal, 
+    thePhone, setupTime, dataVersion, lat, lng
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from netbar_baseinfo
+    where gid = #{gid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from netbar_baseinfo
+    where gid = #{gid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.archy.cash.entity.NetbarBaseInfo" >
+    insert into netbar_baseinfo (gid, netBarName, ifChain, 
+      tid, proviceID, cityID, 
+      districtID, address, pcNum, 
+      principal, thePhone, setupTime, 
+      dataVersion, lat, lng
+      )
+    values (#{gid,jdbcType=INTEGER}, #{netbarname,jdbcType=INTEGER}, #{ifchain,jdbcType=BIT}, 
+      #{tid,jdbcType=INTEGER}, #{proviceid,jdbcType=TINYINT}, #{cityid,jdbcType=INTEGER}, 
+      #{districtid,jdbcType=INTEGER}, #{address,jdbcType=VARCHAR}, #{pcnum,jdbcType=INTEGER}, 
+      #{principal,jdbcType=VARCHAR}, #{thephone,jdbcType=VARCHAR}, #{setuptime,jdbcType=TIMESTAMP}, 
+      #{dataversion,jdbcType=INTEGER}, #{lat,jdbcType=DECIMAL}, #{lng,jdbcType=DECIMAL}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.archy.cash.entity.NetbarBaseInfo" >
+    insert into netbar_baseinfo
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="gid != null" >
+        gid,
+      </if>
+      <if test="netbarname != null" >
+        netBarName,
+      </if>
+      <if test="ifchain != null" >
+        ifChain,
+      </if>
+      <if test="tid != null" >
+        tid,
+      </if>
+      <if test="proviceid != null" >
+        proviceID,
+      </if>
+      <if test="cityid != null" >
+        cityID,
+      </if>
+      <if test="districtid != null" >
+        districtID,
+      </if>
+      <if test="address != null" >
+        address,
+      </if>
+      <if test="pcnum != null" >
+        pcNum,
+      </if>
+      <if test="principal != null" >
+        principal,
+      </if>
+      <if test="thephone != null" >
+        thePhone,
+      </if>
+      <if test="setuptime != null" >
+        setupTime,
+      </if>
+      <if test="dataversion != null" >
+        dataVersion,
+      </if>
+      <if test="lat != null" >
+        lat,
+      </if>
+      <if test="lng != null" >
+        lng,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="gid != null" >
+        #{gid,jdbcType=INTEGER},
+      </if>
+      <if test="netbarname != null" >
+        #{netbarname,jdbcType=INTEGER},
+      </if>
+      <if test="ifchain != null" >
+        #{ifchain,jdbcType=BIT},
+      </if>
+      <if test="tid != null" >
+        #{tid,jdbcType=INTEGER},
+      </if>
+      <if test="proviceid != null" >
+        #{proviceid,jdbcType=TINYINT},
+      </if>
+      <if test="cityid != null" >
+        #{cityid,jdbcType=INTEGER},
+      </if>
+      <if test="districtid != null" >
+        #{districtid,jdbcType=INTEGER},
+      </if>
+      <if test="address != null" >
+        #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="pcnum != null" >
+        #{pcnum,jdbcType=INTEGER},
+      </if>
+      <if test="principal != null" >
+        #{principal,jdbcType=VARCHAR},
+      </if>
+      <if test="thephone != null" >
+        #{thephone,jdbcType=VARCHAR},
+      </if>
+      <if test="setuptime != null" >
+        #{setuptime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="dataversion != null" >
+        #{dataversion,jdbcType=INTEGER},
+      </if>
+      <if test="lat != null" >
+        #{lat,jdbcType=DECIMAL},
+      </if>
+      <if test="lng != null" >
+        #{lng,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.archy.cash.entity.NetbarBaseInfo" >
+    update netbar_baseinfo
+    <set >
+      <if test="netbarname != null" >
+        netBarName = #{netbarname,jdbcType=INTEGER},
+      </if>
+      <if test="ifchain != null" >
+        ifChain = #{ifchain,jdbcType=BIT},
+      </if>
+      <if test="tid != null" >
+        tid = #{tid,jdbcType=INTEGER},
+      </if>
+      <if test="proviceid != null" >
+        proviceID = #{proviceid,jdbcType=TINYINT},
+      </if>
+      <if test="cityid != null" >
+        cityID = #{cityid,jdbcType=INTEGER},
+      </if>
+      <if test="districtid != null" >
+        districtID = #{districtid,jdbcType=INTEGER},
+      </if>
+      <if test="address != null" >
+        address = #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="pcnum != null" >
+        pcNum = #{pcnum,jdbcType=INTEGER},
+      </if>
+      <if test="principal != null" >
+        principal = #{principal,jdbcType=VARCHAR},
+      </if>
+      <if test="thephone != null" >
+        thePhone = #{thephone,jdbcType=VARCHAR},
+      </if>
+      <if test="setuptime != null" >
+        setupTime = #{setuptime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="dataversion != null" >
+        dataVersion = #{dataversion,jdbcType=INTEGER},
+      </if>
+      <if test="lat != null" >
+        lat = #{lat,jdbcType=DECIMAL},
+      </if>
+      <if test="lng != null" >
+        lng = #{lng,jdbcType=DECIMAL},
+      </if>
+    </set>
+    where gid = #{gid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.archy.cash.entity.NetbarBaseInfo" >
+    update netbar_baseinfo
+    set netBarName = #{netbarname,jdbcType=INTEGER},
+      ifChain = #{ifchain,jdbcType=BIT},
+      tid = #{tid,jdbcType=INTEGER},
+      proviceID = #{proviceid,jdbcType=TINYINT},
+      cityID = #{cityid,jdbcType=INTEGER},
+      districtID = #{districtid,jdbcType=INTEGER},
+      address = #{address,jdbcType=VARCHAR},
+      pcNum = #{pcnum,jdbcType=INTEGER},
+      principal = #{principal,jdbcType=VARCHAR},
+      thePhone = #{thephone,jdbcType=VARCHAR},
+      setupTime = #{setuptime,jdbcType=TIMESTAMP},
+      dataVersion = #{dataversion,jdbcType=INTEGER},
+      lat = #{lat,jdbcType=DECIMAL},
+      lng = #{lng,jdbcType=DECIMAL}
+    where gid = #{gid,jdbcType=INTEGER}
+  </update>
+</mapper>

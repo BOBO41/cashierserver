@@ -1,0 +1,300 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.archy.cash.dao.interfaces.NetbarAreaMapper">
+  <resultMap id="BaseResultMap" type="com.archy.cash.entity.NetbarArea">
+    <id column="areaID" jdbcType="INTEGER" property="areaid" />
+    <id column="gid" jdbcType="INTEGER" property="gid" />
+    <result column="areaName" jdbcType="VARCHAR" property="areaname" />
+    <result column="areaType" jdbcType="BIT" property="areatype" />
+    <result column="num" jdbcType="INTEGER" property="num" />
+    <result column="ifRoom" jdbcType="BIT" property="ifroom" />
+    <result column="description" jdbcType="VARCHAR" property="description" />
+    <result column="state" jdbcType="BIT" property="state" />
+    <result column="dataVersion" jdbcType="INTEGER" property="dataversion" />
+    <result column="memberTypeList" jdbcType="VARCHAR" property="membertypelist" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    areaID, gid, areaName, areaType, num, ifRoom, description, state, dataVersion, memberTypeList
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="map" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from netbar_area
+    where areaID = #{areaid,jdbcType=INTEGER}
+      and gid = #{gid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="map">
+    delete from netbar_area
+    where areaID = #{areaid,jdbcType=INTEGER}
+      and gid = #{gid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.archy.cash.entity.NetbarArea">
+    insert into netbar_area (areaID, gid, areaName, 
+      areaType, num, ifRoom, description, 
+      state, dataVersion, memberTypeList
+      )
+    values (#{areaid,jdbcType=INTEGER}, #{gid,jdbcType=INTEGER}, #{areaname,jdbcType=VARCHAR}, 
+      #{areatype,jdbcType=BIT}, #{num,jdbcType=INTEGER}, #{ifroom,jdbcType=BIT}, #{description,jdbcType=VARCHAR}, 
+      #{state,jdbcType=BIT}, #{dataversion,jdbcType=INTEGER}, #{membertypelist,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.archy.cash.entity.NetbarArea">
+    insert into netbar_area
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="areaid != null">
+        areaID,
+      </if>
+      <if test="gid != null">
+        gid,
+      </if>
+      <if test="areaname != null">
+        areaName,
+      </if>
+      <if test="areatype != null">
+        areaType,
+      </if>
+      <if test="num != null">
+        num,
+      </if>
+      <if test="ifroom != null">
+        ifRoom,
+      </if>
+      <if test="description != null">
+        description,
+      </if>
+      <if test="state != null">
+        state,
+      </if>
+      <if test="dataversion != null">
+        dataVersion,
+      </if>
+      <if test="membertypelist != null">
+        memberTypeList,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="areaid != null">
+        #{areaid,jdbcType=INTEGER},
+      </if>
+      <if test="gid != null">
+        #{gid,jdbcType=INTEGER},
+      </if>
+      <if test="areaname != null">
+        #{areaname,jdbcType=VARCHAR},
+      </if>
+      <if test="areatype != null">
+        #{areatype,jdbcType=BIT},
+      </if>
+      <if test="num != null">
+        #{num,jdbcType=INTEGER},
+      </if>
+      <if test="ifroom != null">
+        #{ifroom,jdbcType=BIT},
+      </if>
+      <if test="description != null">
+        #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="state != null">
+        #{state,jdbcType=BIT},
+      </if>
+      <if test="dataversion != null">
+        #{dataversion,jdbcType=INTEGER},
+      </if>
+      <if test="membertypelist != null">
+        #{membertypelist,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.archy.cash.entity.NetbarArea">
+    update netbar_area
+    <set>
+      <if test="areaname != null">
+        areaName = #{areaname,jdbcType=VARCHAR},
+      </if>
+      <if test="areatype != null">
+        areaType = #{areatype,jdbcType=BIT},
+      </if>
+      <if test="num != null">
+        num = #{num,jdbcType=INTEGER},
+      </if>
+      <if test="ifroom != null">
+        ifRoom = #{ifroom,jdbcType=BIT},
+      </if>
+      <if test="description != null">
+        description = #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="state != null">
+        state = #{state,jdbcType=BIT},
+      </if>
+      <if test="dataversion != null">
+        dataVersion = #{dataversion,jdbcType=INTEGER},
+      </if>
+      <if test="membertypelist != null">
+        memberTypeList = #{membertypelist,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where areaID = #{areaid,jdbcType=INTEGER}
+      and gid = #{gid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.archy.cash.entity.NetbarArea">
+    update netbar_area
+    set areaName = #{areaname,jdbcType=VARCHAR},
+      areaType = #{areatype,jdbcType=BIT},
+      num = #{num,jdbcType=INTEGER},
+      ifRoom = #{ifroom,jdbcType=BIT},
+      description = #{description,jdbcType=VARCHAR},
+      state = #{state,jdbcType=BIT},
+      dataVersion = #{dataversion,jdbcType=INTEGER},
+      memberTypeList = #{membertypelist,jdbcType=VARCHAR}
+    where areaID = #{areaid,jdbcType=INTEGER}
+      and gid = #{gid,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="com.archy.cash.entity.NetbarArea">
+    <id column="areaID" jdbcType="INTEGER" property="areaid" />
+    <id column="gid" jdbcType="INTEGER" property="gid" />
+    <result column="areaName" jdbcType="VARCHAR" property="areaname" />
+    <result column="areaType" jdbcType="BIT" property="areatype" />
+    <result column="num" jdbcType="INTEGER" property="num" />
+    <result column="ifRoom" jdbcType="BIT" property="ifroom" />
+    <result column="description" jdbcType="VARCHAR" property="description" />
+    <result column="state" jdbcType="BIT" property="state" />
+    <result column="dataVersion" jdbcType="INTEGER" property="dataversion" />
+    <result column="memberTypeList" jdbcType="VARCHAR" property="membertypelist" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    areaID, gid, areaName, areaType, num, ifRoom, description, state, dataVersion, memberTypeList
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="map" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from netbar_area
+    where areaID = #{areaid,jdbcType=INTEGER}
+      and gid = #{gid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="map">
+    delete from netbar_area
+    where areaID = #{areaid,jdbcType=INTEGER}
+      and gid = #{gid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.archy.cash.entity.NetbarArea">
+    insert into netbar_area (areaID, gid, areaName, 
+      areaType, num, ifRoom, description, 
+      state, dataVersion, memberTypeList
+      )
+    values (#{areaid,jdbcType=INTEGER}, #{gid,jdbcType=INTEGER}, #{areaname,jdbcType=VARCHAR}, 
+      #{areatype,jdbcType=BIT}, #{num,jdbcType=INTEGER}, #{ifroom,jdbcType=BIT}, #{description,jdbcType=VARCHAR}, 
+      #{state,jdbcType=BIT}, #{dataversion,jdbcType=INTEGER}, #{membertypelist,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.archy.cash.entity.NetbarArea">
+    insert into netbar_area
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="areaid != null">
+        areaID,
+      </if>
+      <if test="gid != null">
+        gid,
+      </if>
+      <if test="areaname != null">
+        areaName,
+      </if>
+      <if test="areatype != null">
+        areaType,
+      </if>
+      <if test="num != null">
+        num,
+      </if>
+      <if test="ifroom != null">
+        ifRoom,
+      </if>
+      <if test="description != null">
+        description,
+      </if>
+      <if test="state != null">
+        state,
+      </if>
+      <if test="dataversion != null">
+        dataVersion,
+      </if>
+      <if test="membertypelist != null">
+        memberTypeList,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="areaid != null">
+        #{areaid,jdbcType=INTEGER},
+      </if>
+      <if test="gid != null">
+        #{gid,jdbcType=INTEGER},
+      </if>
+      <if test="areaname != null">
+        #{areaname,jdbcType=VARCHAR},
+      </if>
+      <if test="areatype != null">
+        #{areatype,jdbcType=BIT},
+      </if>
+      <if test="num != null">
+        #{num,jdbcType=INTEGER},
+      </if>
+      <if test="ifroom != null">
+        #{ifroom,jdbcType=BIT},
+      </if>
+      <if test="description != null">
+        #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="state != null">
+        #{state,jdbcType=BIT},
+      </if>
+      <if test="dataversion != null">
+        #{dataversion,jdbcType=INTEGER},
+      </if>
+      <if test="membertypelist != null">
+        #{membertypelist,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.archy.cash.entity.NetbarArea">
+    update netbar_area
+    <set>
+      <if test="areaname != null">
+        areaName = #{areaname,jdbcType=VARCHAR},
+      </if>
+      <if test="areatype != null">
+        areaType = #{areatype,jdbcType=BIT},
+      </if>
+      <if test="num != null">
+        num = #{num,jdbcType=INTEGER},
+      </if>
+      <if test="ifroom != null">
+        ifRoom = #{ifroom,jdbcType=BIT},
+      </if>
+      <if test="description != null">
+        description = #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="state != null">
+        state = #{state,jdbcType=BIT},
+      </if>
+      <if test="dataversion != null">
+        dataVersion = #{dataversion,jdbcType=INTEGER},
+      </if>
+      <if test="membertypelist != null">
+        memberTypeList = #{membertypelist,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where areaID = #{areaid,jdbcType=INTEGER}
+      and gid = #{gid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.archy.cash.entity.NetbarArea">
+    update netbar_area
+    set areaName = #{areaname,jdbcType=VARCHAR},
+      areaType = #{areatype,jdbcType=BIT},
+      num = #{num,jdbcType=INTEGER},
+      ifRoom = #{ifroom,jdbcType=BIT},
+      description = #{description,jdbcType=VARCHAR},
+      state = #{state,jdbcType=BIT},
+      dataVersion = #{dataversion,jdbcType=INTEGER},
+      memberTypeList = #{membertypelist,jdbcType=VARCHAR}
+    where areaID = #{areaid,jdbcType=INTEGER}
+      and gid = #{gid,jdbcType=INTEGER}
+  </update>
+</mapper>

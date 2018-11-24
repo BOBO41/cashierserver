@@ -1,0 +1,414 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.archy.cash.dao.interfaces.NetbarBIllingMapper" >
+  <resultMap id="BaseResultMap" type="com.archy.cash.entity.NetbarBIlling" >
+    <id column="billingID" property="billingid" jdbcType="BIGINT" />
+    <result column="gid" property="gid" jdbcType="INTEGER" />
+    <result column="tariffConfigID" property="tariffconfigid" jdbcType="INTEGER" />
+    <result column="ruleID" property="ruleid" jdbcType="INTEGER" />
+    <result column="startTime" property="starttime" jdbcType="TIMESTAMP" />
+    <result column="endTime" property="endtime" jdbcType="TIMESTAMP" />
+    <result column="theDate" property="thedate" jdbcType="DATE" />
+    <result column="tariffDataVersion" property="tariffdataversion" jdbcType="INTEGER" />
+    <result column="tariffType" property="tarifftype" jdbcType="BIT" />
+    <result column="ratioCostBase" property="ratiocostbase" jdbcType="BIT" />
+    <result column="ratioCostAward" property="ratiocostaward" jdbcType="BIT" />
+    <result column="discount" property="discount" jdbcType="DECIMAL" />
+    <result column="periodStartTime" property="periodstarttime" jdbcType="DECIMAL" />
+    <result column="periodEndTime" property="periodendtime" jdbcType="DECIMAL" />
+    <result column="lastCostTimestamp" property="lastcosttimestamp" jdbcType="TIMESTAMP" />
+    <result column="nextCostTimestamp" property="nextcosttimestamp" jdbcType="TIMESTAMP" />
+    <result column="maxEndTimestamp" property="maxendtimestamp" jdbcType="TIMESTAMP" />
+    <result column="currentCostBase" property="currentcostbase" jdbcType="DECIMAL" />
+    <result column="currentCostAward" property="currentcostaward" jdbcType="DECIMAL" />
+    <result column="currentCostTemp" property="currentcosttemp" jdbcType="DECIMAL" />
+    <result column="allHadCost" property="allhadcost" jdbcType="DECIMAL" />
+    <result column="ignoreTime" property="ignoretime" jdbcType="INTEGER" />
+    <result column="startPrice" property="startprice" jdbcType="DECIMAL" />
+    <result column="hourPrice" property="hourprice" jdbcType="DECIMAL" />
+    <result column="wholeTimestamp" property="wholetimestamp" jdbcType="INTEGER" />
+    <result column="startCost" property="startcost" jdbcType="DECIMAL" />
+    <result column="checkStart" property="checkstart" jdbcType="BIT" />
+    <result column="periodOrder" property="periodorder" jdbcType="BIT" />
+    <result column="memberID" property="memberid" jdbcType="BIGINT" />
+    <result column="roomOwner" property="roomowner" jdbcType="BIT" />
+    <result column="additionalFee" property="additionalfee" jdbcType="DECIMAL" />
+    <result column="onlineID" property="onlineid" jdbcType="BIGINT" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    billingID, gid, tariffConfigID, ruleID, startTime, endTime, theDate, tariffDataVersion, 
+    tariffType, ratioCostBase, ratioCostAward, discount, periodStartTime, periodEndTime, 
+    lastCostTimestamp, nextCostTimestamp, maxEndTimestamp, currentCostBase, currentCostAward, 
+    currentCostTemp, allHadCost, ignoreTime, startPrice, hourPrice, wholeTimestamp, startCost, 
+    checkStart, periodOrder, memberID, roomOwner, additionalFee, onlineID
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from netbar_billing
+    where billingID = #{billingid,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from netbar_billing
+    where billingID = #{billingid,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.archy.cash.entity.NetbarBIlling" >
+    insert into netbar_billing (billingID, gid, tariffConfigID, 
+      ruleID, startTime, endTime, 
+      theDate, tariffDataVersion, tariffType, 
+      ratioCostBase, ratioCostAward, discount, 
+      periodStartTime, periodEndTime, lastCostTimestamp, 
+      nextCostTimestamp, maxEndTimestamp, 
+      currentCostBase, currentCostAward, currentCostTemp, 
+      allHadCost, ignoreTime, startPrice, 
+      hourPrice, wholeTimestamp, startCost, 
+      checkStart, periodOrder, memberID, 
+      roomOwner, additionalFee, onlineID
+      )
+    values (#{billingid,jdbcType=BIGINT}, #{gid,jdbcType=INTEGER}, #{tariffconfigid,jdbcType=INTEGER}, 
+      #{ruleid,jdbcType=INTEGER}, #{starttime,jdbcType=TIMESTAMP}, #{endtime,jdbcType=TIMESTAMP}, 
+      #{thedate,jdbcType=DATE}, #{tariffdataversion,jdbcType=INTEGER}, #{tarifftype,jdbcType=BIT}, 
+      #{ratiocostbase,jdbcType=BIT}, #{ratiocostaward,jdbcType=BIT}, #{discount,jdbcType=DECIMAL}, 
+      #{periodstarttime,jdbcType=DECIMAL}, #{periodendtime,jdbcType=DECIMAL}, #{lastcosttimestamp,jdbcType=TIMESTAMP}, 
+      #{nextcosttimestamp,jdbcType=TIMESTAMP}, #{maxendtimestamp,jdbcType=TIMESTAMP}, 
+      #{currentcostbase,jdbcType=DECIMAL}, #{currentcostaward,jdbcType=DECIMAL}, #{currentcosttemp,jdbcType=DECIMAL}, 
+      #{allhadcost,jdbcType=DECIMAL}, #{ignoretime,jdbcType=INTEGER}, #{startprice,jdbcType=DECIMAL}, 
+      #{hourprice,jdbcType=DECIMAL}, #{wholetimestamp,jdbcType=INTEGER}, #{startcost,jdbcType=DECIMAL}, 
+      #{checkstart,jdbcType=BIT}, #{periodorder,jdbcType=BIT}, #{memberid,jdbcType=BIGINT}, 
+      #{roomowner,jdbcType=BIT}, #{additionalfee,jdbcType=DECIMAL}, #{onlineid,jdbcType=BIGINT}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.archy.cash.entity.NetbarBIlling" >
+    insert into netbar_billing
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="billingid != null" >
+        billingID,
+      </if>
+      <if test="gid != null" >
+        gid,
+      </if>
+      <if test="tariffconfigid != null" >
+        tariffConfigID,
+      </if>
+      <if test="ruleid != null" >
+        ruleID,
+      </if>
+      <if test="starttime != null" >
+        startTime,
+      </if>
+      <if test="endtime != null" >
+        endTime,
+      </if>
+      <if test="thedate != null" >
+        theDate,
+      </if>
+      <if test="tariffdataversion != null" >
+        tariffDataVersion,
+      </if>
+      <if test="tarifftype != null" >
+        tariffType,
+      </if>
+      <if test="ratiocostbase != null" >
+        ratioCostBase,
+      </if>
+      <if test="ratiocostaward != null" >
+        ratioCostAward,
+      </if>
+      <if test="discount != null" >
+        discount,
+      </if>
+      <if test="periodstarttime != null" >
+        periodStartTime,
+      </if>
+      <if test="periodendtime != null" >
+        periodEndTime,
+      </if>
+      <if test="lastcosttimestamp != null" >
+        lastCostTimestamp,
+      </if>
+      <if test="nextcosttimestamp != null" >
+        nextCostTimestamp,
+      </if>
+      <if test="maxendtimestamp != null" >
+        maxEndTimestamp,
+      </if>
+      <if test="currentcostbase != null" >
+        currentCostBase,
+      </if>
+      <if test="currentcostaward != null" >
+        currentCostAward,
+      </if>
+      <if test="currentcosttemp != null" >
+        currentCostTemp,
+      </if>
+      <if test="allhadcost != null" >
+        allHadCost,
+      </if>
+      <if test="ignoretime != null" >
+        ignoreTime,
+      </if>
+      <if test="startprice != null" >
+        startPrice,
+      </if>
+      <if test="hourprice != null" >
+        hourPrice,
+      </if>
+      <if test="wholetimestamp != null" >
+        wholeTimestamp,
+      </if>
+      <if test="startcost != null" >
+        startCost,
+      </if>
+      <if test="checkstart != null" >
+        checkStart,
+      </if>
+      <if test="periodorder != null" >
+        periodOrder,
+      </if>
+      <if test="memberid != null" >
+        memberID,
+      </if>
+      <if test="roomowner != null" >
+        roomOwner,
+      </if>
+      <if test="additionalfee != null" >
+        additionalFee,
+      </if>
+      <if test="onlineid != null" >
+        onlineID,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="billingid != null" >
+        #{billingid,jdbcType=BIGINT},
+      </if>
+      <if test="gid != null" >
+        #{gid,jdbcType=INTEGER},
+      </if>
+      <if test="tariffconfigid != null" >
+        #{tariffconfigid,jdbcType=INTEGER},
+      </if>
+      <if test="ruleid != null" >
+        #{ruleid,jdbcType=INTEGER},
+      </if>
+      <if test="starttime != null" >
+        #{starttime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endtime != null" >
+        #{endtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="thedate != null" >
+        #{thedate,jdbcType=DATE},
+      </if>
+      <if test="tariffdataversion != null" >
+        #{tariffdataversion,jdbcType=INTEGER},
+      </if>
+      <if test="tarifftype != null" >
+        #{tarifftype,jdbcType=BIT},
+      </if>
+      <if test="ratiocostbase != null" >
+        #{ratiocostbase,jdbcType=BIT},
+      </if>
+      <if test="ratiocostaward != null" >
+        #{ratiocostaward,jdbcType=BIT},
+      </if>
+      <if test="discount != null" >
+        #{discount,jdbcType=DECIMAL},
+      </if>
+      <if test="periodstarttime != null" >
+        #{periodstarttime,jdbcType=DECIMAL},
+      </if>
+      <if test="periodendtime != null" >
+        #{periodendtime,jdbcType=DECIMAL},
+      </if>
+      <if test="lastcosttimestamp != null" >
+        #{lastcosttimestamp,jdbcType=TIMESTAMP},
+      </if>
+      <if test="nextcosttimestamp != null" >
+        #{nextcosttimestamp,jdbcType=TIMESTAMP},
+      </if>
+      <if test="maxendtimestamp != null" >
+        #{maxendtimestamp,jdbcType=TIMESTAMP},
+      </if>
+      <if test="currentcostbase != null" >
+        #{currentcostbase,jdbcType=DECIMAL},
+      </if>
+      <if test="currentcostaward != null" >
+        #{currentcostaward,jdbcType=DECIMAL},
+      </if>
+      <if test="currentcosttemp != null" >
+        #{currentcosttemp,jdbcType=DECIMAL},
+      </if>
+      <if test="allhadcost != null" >
+        #{allhadcost,jdbcType=DECIMAL},
+      </if>
+      <if test="ignoretime != null" >
+        #{ignoretime,jdbcType=INTEGER},
+      </if>
+      <if test="startprice != null" >
+        #{startprice,jdbcType=DECIMAL},
+      </if>
+      <if test="hourprice != null" >
+        #{hourprice,jdbcType=DECIMAL},
+      </if>
+      <if test="wholetimestamp != null" >
+        #{wholetimestamp,jdbcType=INTEGER},
+      </if>
+      <if test="startcost != null" >
+        #{startcost,jdbcType=DECIMAL},
+      </if>
+      <if test="checkstart != null" >
+        #{checkstart,jdbcType=BIT},
+      </if>
+      <if test="periodorder != null" >
+        #{periodorder,jdbcType=BIT},
+      </if>
+      <if test="memberid != null" >
+        #{memberid,jdbcType=BIGINT},
+      </if>
+      <if test="roomowner != null" >
+        #{roomowner,jdbcType=BIT},
+      </if>
+      <if test="additionalfee != null" >
+        #{additionalfee,jdbcType=DECIMAL},
+      </if>
+      <if test="onlineid != null" >
+        #{onlineid,jdbcType=BIGINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.archy.cash.entity.NetbarBIlling" >
+    update netbar_billing
+    <set >
+      <if test="gid != null" >
+        gid = #{gid,jdbcType=INTEGER},
+      </if>
+      <if test="tariffconfigid != null" >
+        tariffConfigID = #{tariffconfigid,jdbcType=INTEGER},
+      </if>
+      <if test="ruleid != null" >
+        ruleID = #{ruleid,jdbcType=INTEGER},
+      </if>
+      <if test="starttime != null" >
+        startTime = #{starttime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endtime != null" >
+        endTime = #{endtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="thedate != null" >
+        theDate = #{thedate,jdbcType=DATE},
+      </if>
+      <if test="tariffdataversion != null" >
+        tariffDataVersion = #{tariffdataversion,jdbcType=INTEGER},
+      </if>
+      <if test="tarifftype != null" >
+        tariffType = #{tarifftype,jdbcType=BIT},
+      </if>
+      <if test="ratiocostbase != null" >
+        ratioCostBase = #{ratiocostbase,jdbcType=BIT},
+      </if>
+      <if test="ratiocostaward != null" >
+        ratioCostAward = #{ratiocostaward,jdbcType=BIT},
+      </if>
+      <if test="discount != null" >
+        discount = #{discount,jdbcType=DECIMAL},
+      </if>
+      <if test="periodstarttime != null" >
+        periodStartTime = #{periodstarttime,jdbcType=DECIMAL},
+      </if>
+      <if test="periodendtime != null" >
+        periodEndTime = #{periodendtime,jdbcType=DECIMAL},
+      </if>
+      <if test="lastcosttimestamp != null" >
+        lastCostTimestamp = #{lastcosttimestamp,jdbcType=TIMESTAMP},
+      </if>
+      <if test="nextcosttimestamp != null" >
+        nextCostTimestamp = #{nextcosttimestamp,jdbcType=TIMESTAMP},
+      </if>
+      <if test="maxendtimestamp != null" >
+        maxEndTimestamp = #{maxendtimestamp,jdbcType=TIMESTAMP},
+      </if>
+      <if test="currentcostbase != null" >
+        currentCostBase = #{currentcostbase,jdbcType=DECIMAL},
+      </if>
+      <if test="currentcostaward != null" >
+        currentCostAward = #{currentcostaward,jdbcType=DECIMAL},
+      </if>
+      <if test="currentcosttemp != null" >
+        currentCostTemp = #{currentcosttemp,jdbcType=DECIMAL},
+      </if>
+      <if test="allhadcost != null" >
+        allHadCost = #{allhadcost,jdbcType=DECIMAL},
+      </if>
+      <if test="ignoretime != null" >
+        ignoreTime = #{ignoretime,jdbcType=INTEGER},
+      </if>
+      <if test="startprice != null" >
+        startPrice = #{startprice,jdbcType=DECIMAL},
+      </if>
+      <if test="hourprice != null" >
+        hourPrice = #{hourprice,jdbcType=DECIMAL},
+      </if>
+      <if test="wholetimestamp != null" >
+        wholeTimestamp = #{wholetimestamp,jdbcType=INTEGER},
+      </if>
+      <if test="startcost != null" >
+        startCost = #{startcost,jdbcType=DECIMAL},
+      </if>
+      <if test="checkstart != null" >
+        checkStart = #{checkstart,jdbcType=BIT},
+      </if>
+      <if test="periodorder != null" >
+        periodOrder = #{periodorder,jdbcType=BIT},
+      </if>
+      <if test="memberid != null" >
+        memberID = #{memberid,jdbcType=BIGINT},
+      </if>
+      <if test="roomowner != null" >
+        roomOwner = #{roomowner,jdbcType=BIT},
+      </if>
+      <if test="additionalfee != null" >
+        additionalFee = #{additionalfee,jdbcType=DECIMAL},
+      </if>
+      <if test="onlineid != null" >
+        onlineID = #{onlineid,jdbcType=BIGINT},
+      </if>
+    </set>
+    where billingID = #{billingid,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.archy.cash.entity.NetbarBIlling" >
+    update netbar_billing
+    set gid = #{gid,jdbcType=INTEGER},
+      tariffConfigID = #{tariffconfigid,jdbcType=INTEGER},
+      ruleID = #{ruleid,jdbcType=INTEGER},
+      startTime = #{starttime,jdbcType=TIMESTAMP},
+      endTime = #{endtime,jdbcType=TIMESTAMP},
+      theDate = #{thedate,jdbcType=DATE},
+      tariffDataVersion = #{tariffdataversion,jdbcType=INTEGER},
+      tariffType = #{tarifftype,jdbcType=BIT},
+      ratioCostBase = #{ratiocostbase,jdbcType=BIT},
+      ratioCostAward = #{ratiocostaward,jdbcType=BIT},
+      discount = #{discount,jdbcType=DECIMAL},
+      periodStartTime = #{periodstarttime,jdbcType=DECIMAL},
+      periodEndTime = #{periodendtime,jdbcType=DECIMAL},
+      lastCostTimestamp = #{lastcosttimestamp,jdbcType=TIMESTAMP},
+      nextCostTimestamp = #{nextcosttimestamp,jdbcType=TIMESTAMP},
+      maxEndTimestamp = #{maxendtimestamp,jdbcType=TIMESTAMP},
+      currentCostBase = #{currentcostbase,jdbcType=DECIMAL},
+      currentCostAward = #{currentcostaward,jdbcType=DECIMAL},
+      currentCostTemp = #{currentcosttemp,jdbcType=DECIMAL},
+      allHadCost = #{allhadcost,jdbcType=DECIMAL},
+      ignoreTime = #{ignoretime,jdbcType=INTEGER},
+      startPrice = #{startprice,jdbcType=DECIMAL},
+      hourPrice = #{hourprice,jdbcType=DECIMAL},
+      wholeTimestamp = #{wholetimestamp,jdbcType=INTEGER},
+      startCost = #{startcost,jdbcType=DECIMAL},
+      checkStart = #{checkstart,jdbcType=BIT},
+      periodOrder = #{periodorder,jdbcType=BIT},
+      memberID = #{memberid,jdbcType=BIGINT},
+      roomOwner = #{roomowner,jdbcType=BIT},
+      additionalFee = #{additionalfee,jdbcType=DECIMAL},
+      onlineID = #{onlineid,jdbcType=BIGINT}
+    where billingID = #{billingid,jdbcType=BIGINT}
+  </update>
+</mapper>

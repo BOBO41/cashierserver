@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.archy.cash.dao.interfaces.NetbarUserMapper" >
+  <resultMap id="BaseResultMap" type="com.archy.cash.entity.NetbarUser" >
+    <id column="netbarUserId" property="netbaruserid" jdbcType="INTEGER" />
+    <result column="account" property="account" jdbcType="VARCHAR" />
+    <result column="memberName" property="membername" jdbcType="VARCHAR" />
+    <result column="birthday" property="birthday" jdbcType="TIMESTAMP" />
+    <result column="sex" property="sex" jdbcType="BIT" />
+    <result column="password" property="password" jdbcType="VARCHAR" />
+    <result column="phone" property="phone" jdbcType="VARCHAR" />
+    <result column="state" property="state" jdbcType="BIT" />
+    <result column="ifAuth" property="ifauth" jdbcType="BIT" />
+    <result column="ifCashierLogin" property="ifcashierlogin" jdbcType="BIT" />
+    <result column="dataVersion" property="dataversion" jdbcType="INTEGER" />
+    <result column="gid" property="gid" jdbcType="INTEGER" />
+    <result column="authoriseCode" property="authorisecode" jdbcType="VARCHAR" />
+    <result column="roleIds" property="roleids" jdbcType="VARCHAR" />
+    <result column="accountLevel" property="accountlevel" jdbcType="BIT" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    netbarUserId, account, memberName, birthday, sex, password, phone, state, ifAuth, 
+    ifCashierLogin, dataVersion, gid, authoriseCode, roleIds, accountLevel
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from netbar_user
+    where netbarUserId = #{netbaruserid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from netbar_user
+    where netbarUserId = #{netbaruserid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.archy.cash.entity.NetbarUser" >
+    insert into netbar_user (netbarUserId, account, memberName, 
+      birthday, sex, password, 
+      phone, state, ifAuth, ifCashierLogin, 
+      dataVersion, gid, authoriseCode, 
+      roleIds, accountLevel)
+    values (#{netbaruserid,jdbcType=INTEGER}, #{account,jdbcType=VARCHAR}, #{membername,jdbcType=VARCHAR}, 
+      #{birthday,jdbcType=TIMESTAMP}, #{sex,jdbcType=BIT}, #{password,jdbcType=VARCHAR}, 
+      #{phone,jdbcType=VARCHAR}, #{state,jdbcType=BIT}, #{ifauth,jdbcType=BIT}, #{ifcashierlogin,jdbcType=BIT}, 
+      #{dataversion,jdbcType=INTEGER}, #{gid,jdbcType=INTEGER}, #{authorisecode,jdbcType=VARCHAR}, 
+      #{roleids,jdbcType=VARCHAR}, #{accountlevel,jdbcType=BIT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.archy.cash.entity.NetbarUser" >
+    insert into netbar_user
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="netbaruserid != null" >
+        netbarUserId,
+      </if>
+      <if test="account != null" >
+        account,
+      </if>
+      <if test="membername != null" >
+        memberName,
+      </if>
+      <if test="birthday != null" >
+        birthday,
+      </if>
+      <if test="sex != null" >
+        sex,
+      </if>
+      <if test="password != null" >
+        password,
+      </if>
+      <if test="phone != null" >
+        phone,
+      </if>
+      <if test="state != null" >
+        state,
+      </if>
+      <if test="ifauth != null" >
+        ifAuth,
+      </if>
+      <if test="ifcashierlogin != null" >
+        ifCashierLogin,
+      </if>
+      <if test="dataversion != null" >
+        dataVersion,
+      </if>
+      <if test="gid != null" >
+        gid,
+      </if>
+      <if test="authorisecode != null" >
+        authoriseCode,
+      </if>
+      <if test="roleids != null" >
+        roleIds,
+      </if>
+      <if test="accountlevel != null" >
+        accountLevel,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="netbaruserid != null" >
+        #{netbaruserid,jdbcType=INTEGER},
+      </if>
+      <if test="account != null" >
+        #{account,jdbcType=VARCHAR},
+      </if>
+      <if test="membername != null" >
+        #{membername,jdbcType=VARCHAR},
+      </if>
+      <if test="birthday != null" >
+        #{birthday,jdbcType=TIMESTAMP},
+      </if>
+      <if test="sex != null" >
+        #{sex,jdbcType=BIT},
+      </if>
+      <if test="password != null" >
+        #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null" >
+        #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="state != null" >
+        #{state,jdbcType=BIT},
+      </if>
+      <if test="ifauth != null" >
+        #{ifauth,jdbcType=BIT},
+      </if>
+      <if test="ifcashierlogin != null" >
+        #{ifcashierlogin,jdbcType=BIT},
+      </if>
+      <if test="dataversion != null" >
+        #{dataversion,jdbcType=INTEGER},
+      </if>
+      <if test="gid != null" >
+        #{gid,jdbcType=INTEGER},
+      </if>
+      <if test="authorisecode != null" >
+        #{authorisecode,jdbcType=VARCHAR},
+      </if>
+      <if test="roleids != null" >
+        #{roleids,jdbcType=VARCHAR},
+      </if>
+      <if test="accountlevel != null" >
+        #{accountlevel,jdbcType=BIT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.archy.cash.entity.NetbarUser" >
+    update netbar_user
+    <set >
+      <if test="account != null" >
+        account = #{account,jdbcType=VARCHAR},
+      </if>
+      <if test="membername != null" >
+        memberName = #{membername,jdbcType=VARCHAR},
+      </if>
+      <if test="birthday != null" >
+        birthday = #{birthday,jdbcType=TIMESTAMP},
+      </if>
+      <if test="sex != null" >
+        sex = #{sex,jdbcType=BIT},
+      </if>
+      <if test="password != null" >
+        password = #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null" >
+        phone = #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="state != null" >
+        state = #{state,jdbcType=BIT},
+      </if>
+      <if test="ifauth != null" >
+        ifAuth = #{ifauth,jdbcType=BIT},
+      </if>
+      <if test="ifcashierlogin != null" >
+        ifCashierLogin = #{ifcashierlogin,jdbcType=BIT},
+      </if>
+      <if test="dataversion != null" >
+        dataVersion = #{dataversion,jdbcType=INTEGER},
+      </if>
+      <if test="gid != null" >
+        gid = #{gid,jdbcType=INTEGER},
+      </if>
+      <if test="authorisecode != null" >
+        authoriseCode = #{authorisecode,jdbcType=VARCHAR},
+      </if>
+      <if test="roleids != null" >
+        roleIds = #{roleids,jdbcType=VARCHAR},
+      </if>
+      <if test="accountlevel != null" >
+        accountLevel = #{accountlevel,jdbcType=BIT},
+      </if>
+    </set>
+    where netbarUserId = #{netbaruserid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.archy.cash.entity.NetbarUser" >
+    update netbar_user
+    set account = #{account,jdbcType=VARCHAR},
+      memberName = #{membername,jdbcType=VARCHAR},
+      birthday = #{birthday,jdbcType=TIMESTAMP},
+      sex = #{sex,jdbcType=BIT},
+      password = #{password,jdbcType=VARCHAR},
+      phone = #{phone,jdbcType=VARCHAR},
+      state = #{state,jdbcType=BIT},
+      ifAuth = #{ifauth,jdbcType=BIT},
+      ifCashierLogin = #{ifcashierlogin,jdbcType=BIT},
+      dataVersion = #{dataversion,jdbcType=INTEGER},
+      gid = #{gid,jdbcType=INTEGER},
+      authoriseCode = #{authorisecode,jdbcType=VARCHAR},
+      roleIds = #{roleids,jdbcType=VARCHAR},
+      accountLevel = #{accountlevel,jdbcType=BIT}
+    where netbarUserId = #{netbaruserid,jdbcType=INTEGER}
+  </update>
+</mapper>

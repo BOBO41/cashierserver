@@ -1,0 +1,436 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.archy.cash.dao.interfaces.NetbarDutyMapper" >
+  <resultMap id="BaseResultMap" type="com.archy.cash.entity.NetbarDuty" >
+    <id column="dutyID" property="dutyid" jdbcType="INTEGER" />
+    <result column="shiftID" property="shiftid" jdbcType="INTEGER" />
+    <result column="currentSum" property="currentsum" jdbcType="DECIMAL" />
+    <result column="currentCash" property="currentcash" jdbcType="DECIMAL" />
+    <result column="currentDeliver" property="currentdeliver" jdbcType="DECIMAL" />
+    <result column="currentReserve" property="currentreserve" jdbcType="DECIMAL" />
+    <result column="dutyDate" property="dutydate" jdbcType="DATE" />
+    <result column="dutyBeginTime" property="dutybegintime" jdbcType="TIMESTAMP" />
+    <result column="dutyEndTime" property="dutyendtime" jdbcType="TIMESTAMP" />
+    <result column="state" property="state" jdbcType="BIT" />
+    <result column="remark" property="remark" jdbcType="VARCHAR" />
+    <result column="dataVersion" property="dataversion" jdbcType="INTEGER" />
+    <result column="gid" property="gid" jdbcType="INTEGER" />
+    <result column="generateFrom" property="generatefrom" jdbcType="BIT" />
+    <result column="nextShiftID" property="nextshiftid" jdbcType="INTEGER" />
+    <result column="currentnetBarUserID" property="currentnetbaruserid" jdbcType="INTEGER" />
+    <result column="nextnetBarUserID" property="nextnetbaruserid" jdbcType="INTEGER" />
+    <result column="submitTime" property="submittime" jdbcType="TIMESTAMP" />
+    <result column="totalIncome" property="totalincome" jdbcType="DECIMAL" />
+    <result column="totalConsume" property="totalconsume" jdbcType="DECIMAL" />
+    <result column="totalAttendance" property="totalattendance" jdbcType="DECIMAL" />
+    <result column="goodsTotalIncome" property="goodstotalincome" jdbcType="DECIMAL" />
+    <result column="newMemberNum" property="newmembernum" jdbcType="INTEGER" />
+    <result column="turnOverRatio" property="turnoverratio" jdbcType="DECIMAL" />
+    <result column="onlineTimes" property="onlinetimes" jdbcType="INTEGER" />
+    <result column="onlineMembers" property="onlinemembers" jdbcType="INTEGER" />
+    <result column="internetTimes" property="internettimes" jdbcType="INTEGER" />
+    <result column="adwardTotal" property="adwardtotal" jdbcType="DECIMAL" />
+    <result column="couponDeduction" property="coupondeduction" jdbcType="DECIMAL" />
+    <result column="shiftName" property="shiftname" jdbcType="VARCHAR" />
+    <result column="currentName" property="currentname" jdbcType="VARCHAR" />
+    <result column="nextShiftName" property="nextshiftname" jdbcType="VARCHAR" />
+    <result column="nextName" property="nextname" jdbcType="VARCHAR" />
+    <result column="lastReserve" property="lastreserve" jdbcType="DECIMAL" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    dutyID, shiftID, currentSum, currentCash, currentDeliver, currentReserve, dutyDate, 
+    dutyBeginTime, dutyEndTime, state, remark, dataVersion, gid, generateFrom, nextShiftID, 
+    currentnetBarUserID, nextnetBarUserID, submitTime, totalIncome, totalConsume, totalAttendance, 
+    goodsTotalIncome, newMemberNum, turnOverRatio, onlineTimes, onlineMembers, internetTimes, 
+    adwardTotal, couponDeduction, shiftName, currentName, nextShiftName, nextName, lastReserve
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from netbar_duty
+    where dutyID = #{dutyid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from netbar_duty
+    where dutyID = #{dutyid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.archy.cash.entity.NetbarDuty" >
+    insert into netbar_duty (dutyID, shiftID, currentSum, 
+      currentCash, currentDeliver, currentReserve, 
+      dutyDate, dutyBeginTime, dutyEndTime, 
+      state, remark, dataVersion, 
+      gid, generateFrom, nextShiftID, 
+      currentnetBarUserID, nextnetBarUserID, 
+      submitTime, totalIncome, totalConsume, 
+      totalAttendance, goodsTotalIncome, newMemberNum, 
+      turnOverRatio, onlineTimes, onlineMembers, 
+      internetTimes, adwardTotal, couponDeduction, 
+      shiftName, currentName, nextShiftName, 
+      nextName, lastReserve)
+    values (#{dutyid,jdbcType=INTEGER}, #{shiftid,jdbcType=INTEGER}, #{currentsum,jdbcType=DECIMAL}, 
+      #{currentcash,jdbcType=DECIMAL}, #{currentdeliver,jdbcType=DECIMAL}, #{currentreserve,jdbcType=DECIMAL}, 
+      #{dutydate,jdbcType=DATE}, #{dutybegintime,jdbcType=TIMESTAMP}, #{dutyendtime,jdbcType=TIMESTAMP}, 
+      #{state,jdbcType=BIT}, #{remark,jdbcType=VARCHAR}, #{dataversion,jdbcType=INTEGER}, 
+      #{gid,jdbcType=INTEGER}, #{generatefrom,jdbcType=BIT}, #{nextshiftid,jdbcType=INTEGER}, 
+      #{currentnetbaruserid,jdbcType=INTEGER}, #{nextnetbaruserid,jdbcType=INTEGER}, 
+      #{submittime,jdbcType=TIMESTAMP}, #{totalincome,jdbcType=DECIMAL}, #{totalconsume,jdbcType=DECIMAL}, 
+      #{totalattendance,jdbcType=DECIMAL}, #{goodstotalincome,jdbcType=DECIMAL}, #{newmembernum,jdbcType=INTEGER}, 
+      #{turnoverratio,jdbcType=DECIMAL}, #{onlinetimes,jdbcType=INTEGER}, #{onlinemembers,jdbcType=INTEGER}, 
+      #{internettimes,jdbcType=INTEGER}, #{adwardtotal,jdbcType=DECIMAL}, #{coupondeduction,jdbcType=DECIMAL}, 
+      #{shiftname,jdbcType=VARCHAR}, #{currentname,jdbcType=VARCHAR}, #{nextshiftname,jdbcType=VARCHAR}, 
+      #{nextname,jdbcType=VARCHAR}, #{lastreserve,jdbcType=DECIMAL})
+  </insert>
+  <insert id="insertSelective" parameterType="com.archy.cash.entity.NetbarDuty" >
+    insert into netbar_duty
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="dutyid != null" >
+        dutyID,
+      </if>
+      <if test="shiftid != null" >
+        shiftID,
+      </if>
+      <if test="currentsum != null" >
+        currentSum,
+      </if>
+      <if test="currentcash != null" >
+        currentCash,
+      </if>
+      <if test="currentdeliver != null" >
+        currentDeliver,
+      </if>
+      <if test="currentreserve != null" >
+        currentReserve,
+      </if>
+      <if test="dutydate != null" >
+        dutyDate,
+      </if>
+      <if test="dutybegintime != null" >
+        dutyBeginTime,
+      </if>
+      <if test="dutyendtime != null" >
+        dutyEndTime,
+      </if>
+      <if test="state != null" >
+        state,
+      </if>
+      <if test="remark != null" >
+        remark,
+      </if>
+      <if test="dataversion != null" >
+        dataVersion,
+      </if>
+      <if test="gid != null" >
+        gid,
+      </if>
+      <if test="generatefrom != null" >
+        generateFrom,
+      </if>
+      <if test="nextshiftid != null" >
+        nextShiftID,
+      </if>
+      <if test="currentnetbaruserid != null" >
+        currentnetBarUserID,
+      </if>
+      <if test="nextnetbaruserid != null" >
+        nextnetBarUserID,
+      </if>
+      <if test="submittime != null" >
+        submitTime,
+      </if>
+      <if test="totalincome != null" >
+        totalIncome,
+      </if>
+      <if test="totalconsume != null" >
+        totalConsume,
+      </if>
+      <if test="totalattendance != null" >
+        totalAttendance,
+      </if>
+      <if test="goodstotalincome != null" >
+        goodsTotalIncome,
+      </if>
+      <if test="newmembernum != null" >
+        newMemberNum,
+      </if>
+      <if test="turnoverratio != null" >
+        turnOverRatio,
+      </if>
+      <if test="onlinetimes != null" >
+        onlineTimes,
+      </if>
+      <if test="onlinemembers != null" >
+        onlineMembers,
+      </if>
+      <if test="internettimes != null" >
+        internetTimes,
+      </if>
+      <if test="adwardtotal != null" >
+        adwardTotal,
+      </if>
+      <if test="coupondeduction != null" >
+        couponDeduction,
+      </if>
+      <if test="shiftname != null" >
+        shiftName,
+      </if>
+      <if test="currentname != null" >
+        currentName,
+      </if>
+      <if test="nextshiftname != null" >
+        nextShiftName,
+      </if>
+      <if test="nextname != null" >
+        nextName,
+      </if>
+      <if test="lastreserve != null" >
+        lastReserve,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="dutyid != null" >
+        #{dutyid,jdbcType=INTEGER},
+      </if>
+      <if test="shiftid != null" >
+        #{shiftid,jdbcType=INTEGER},
+      </if>
+      <if test="currentsum != null" >
+        #{currentsum,jdbcType=DECIMAL},
+      </if>
+      <if test="currentcash != null" >
+        #{currentcash,jdbcType=DECIMAL},
+      </if>
+      <if test="currentdeliver != null" >
+        #{currentdeliver,jdbcType=DECIMAL},
+      </if>
+      <if test="currentreserve != null" >
+        #{currentreserve,jdbcType=DECIMAL},
+      </if>
+      <if test="dutydate != null" >
+        #{dutydate,jdbcType=DATE},
+      </if>
+      <if test="dutybegintime != null" >
+        #{dutybegintime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="dutyendtime != null" >
+        #{dutyendtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="state != null" >
+        #{state,jdbcType=BIT},
+      </if>
+      <if test="remark != null" >
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="dataversion != null" >
+        #{dataversion,jdbcType=INTEGER},
+      </if>
+      <if test="gid != null" >
+        #{gid,jdbcType=INTEGER},
+      </if>
+      <if test="generatefrom != null" >
+        #{generatefrom,jdbcType=BIT},
+      </if>
+      <if test="nextshiftid != null" >
+        #{nextshiftid,jdbcType=INTEGER},
+      </if>
+      <if test="currentnetbaruserid != null" >
+        #{currentnetbaruserid,jdbcType=INTEGER},
+      </if>
+      <if test="nextnetbaruserid != null" >
+        #{nextnetbaruserid,jdbcType=INTEGER},
+      </if>
+      <if test="submittime != null" >
+        #{submittime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="totalincome != null" >
+        #{totalincome,jdbcType=DECIMAL},
+      </if>
+      <if test="totalconsume != null" >
+        #{totalconsume,jdbcType=DECIMAL},
+      </if>
+      <if test="totalattendance != null" >
+        #{totalattendance,jdbcType=DECIMAL},
+      </if>
+      <if test="goodstotalincome != null" >
+        #{goodstotalincome,jdbcType=DECIMAL},
+      </if>
+      <if test="newmembernum != null" >
+        #{newmembernum,jdbcType=INTEGER},
+      </if>
+      <if test="turnoverratio != null" >
+        #{turnoverratio,jdbcType=DECIMAL},
+      </if>
+      <if test="onlinetimes != null" >
+        #{onlinetimes,jdbcType=INTEGER},
+      </if>
+      <if test="onlinemembers != null" >
+        #{onlinemembers,jdbcType=INTEGER},
+      </if>
+      <if test="internettimes != null" >
+        #{internettimes,jdbcType=INTEGER},
+      </if>
+      <if test="adwardtotal != null" >
+        #{adwardtotal,jdbcType=DECIMAL},
+      </if>
+      <if test="coupondeduction != null" >
+        #{coupondeduction,jdbcType=DECIMAL},
+      </if>
+      <if test="shiftname != null" >
+        #{shiftname,jdbcType=VARCHAR},
+      </if>
+      <if test="currentname != null" >
+        #{currentname,jdbcType=VARCHAR},
+      </if>
+      <if test="nextshiftname != null" >
+        #{nextshiftname,jdbcType=VARCHAR},
+      </if>
+      <if test="nextname != null" >
+        #{nextname,jdbcType=VARCHAR},
+      </if>
+      <if test="lastreserve != null" >
+        #{lastreserve,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.archy.cash.entity.NetbarDuty" >
+    update netbar_duty
+    <set >
+      <if test="shiftid != null" >
+        shiftID = #{shiftid,jdbcType=INTEGER},
+      </if>
+      <if test="currentsum != null" >
+        currentSum = #{currentsum,jdbcType=DECIMAL},
+      </if>
+      <if test="currentcash != null" >
+        currentCash = #{currentcash,jdbcType=DECIMAL},
+      </if>
+      <if test="currentdeliver != null" >
+        currentDeliver = #{currentdeliver,jdbcType=DECIMAL},
+      </if>
+      <if test="currentreserve != null" >
+        currentReserve = #{currentreserve,jdbcType=DECIMAL},
+      </if>
+      <if test="dutydate != null" >
+        dutyDate = #{dutydate,jdbcType=DATE},
+      </if>
+      <if test="dutybegintime != null" >
+        dutyBeginTime = #{dutybegintime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="dutyendtime != null" >
+        dutyEndTime = #{dutyendtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="state != null" >
+        state = #{state,jdbcType=BIT},
+      </if>
+      <if test="remark != null" >
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="dataversion != null" >
+        dataVersion = #{dataversion,jdbcType=INTEGER},
+      </if>
+      <if test="gid != null" >
+        gid = #{gid,jdbcType=INTEGER},
+      </if>
+      <if test="generatefrom != null" >
+        generateFrom = #{generatefrom,jdbcType=BIT},
+      </if>
+      <if test="nextshiftid != null" >
+        nextShiftID = #{nextshiftid,jdbcType=INTEGER},
+      </if>
+      <if test="currentnetbaruserid != null" >
+        currentnetBarUserID = #{currentnetbaruserid,jdbcType=INTEGER},
+      </if>
+      <if test="nextnetbaruserid != null" >
+        nextnetBarUserID = #{nextnetbaruserid,jdbcType=INTEGER},
+      </if>
+      <if test="submittime != null" >
+        submitTime = #{submittime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="totalincome != null" >
+        totalIncome = #{totalincome,jdbcType=DECIMAL},
+      </if>
+      <if test="totalconsume != null" >
+        totalConsume = #{totalconsume,jdbcType=DECIMAL},
+      </if>
+      <if test="totalattendance != null" >
+        totalAttendance = #{totalattendance,jdbcType=DECIMAL},
+      </if>
+      <if test="goodstotalincome != null" >
+        goodsTotalIncome = #{goodstotalincome,jdbcType=DECIMAL},
+      </if>
+      <if test="newmembernum != null" >
+        newMemberNum = #{newmembernum,jdbcType=INTEGER},
+      </if>
+      <if test="turnoverratio != null" >
+        turnOverRatio = #{turnoverratio,jdbcType=DECIMAL},
+      </if>
+      <if test="onlinetimes != null" >
+        onlineTimes = #{onlinetimes,jdbcType=INTEGER},
+      </if>
+      <if test="onlinemembers != null" >
+        onlineMembers = #{onlinemembers,jdbcType=INTEGER},
+      </if>
+      <if test="internettimes != null" >
+        internetTimes = #{internettimes,jdbcType=INTEGER},
+      </if>
+      <if test="adwardtotal != null" >
+        adwardTotal = #{adwardtotal,jdbcType=DECIMAL},
+      </if>
+      <if test="coupondeduction != null" >
+        couponDeduction = #{coupondeduction,jdbcType=DECIMAL},
+      </if>
+      <if test="shiftname != null" >
+        shiftName = #{shiftname,jdbcType=VARCHAR},
+      </if>
+      <if test="currentname != null" >
+        currentName = #{currentname,jdbcType=VARCHAR},
+      </if>
+      <if test="nextshiftname != null" >
+        nextShiftName = #{nextshiftname,jdbcType=VARCHAR},
+      </if>
+      <if test="nextname != null" >
+        nextName = #{nextname,jdbcType=VARCHAR},
+      </if>
+      <if test="lastreserve != null" >
+        lastReserve = #{lastreserve,jdbcType=DECIMAL},
+      </if>
+    </set>
+    where dutyID = #{dutyid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.archy.cash.entity.NetbarDuty" >
+    update netbar_duty
+    set shiftID = #{shiftid,jdbcType=INTEGER},
+      currentSum = #{currentsum,jdbcType=DECIMAL},
+      currentCash = #{currentcash,jdbcType=DECIMAL},
+      currentDeliver = #{currentdeliver,jdbcType=DECIMAL},
+      currentReserve = #{currentreserve,jdbcType=DECIMAL},
+      dutyDate = #{dutydate,jdbcType=DATE},
+      dutyBeginTime = #{dutybegintime,jdbcType=TIMESTAMP},
+      dutyEndTime = #{dutyendtime,jdbcType=TIMESTAMP},
+      state = #{state,jdbcType=BIT},
+      remark = #{remark,jdbcType=VARCHAR},
+      dataVersion = #{dataversion,jdbcType=INTEGER},
+      gid = #{gid,jdbcType=INTEGER},
+      generateFrom = #{generatefrom,jdbcType=BIT},
+      nextShiftID = #{nextshiftid,jdbcType=INTEGER},
+      currentnetBarUserID = #{currentnetbaruserid,jdbcType=INTEGER},
+      nextnetBarUserID = #{nextnetbaruserid,jdbcType=INTEGER},
+      submitTime = #{submittime,jdbcType=TIMESTAMP},
+      totalIncome = #{totalincome,jdbcType=DECIMAL},
+      totalConsume = #{totalconsume,jdbcType=DECIMAL},
+      totalAttendance = #{totalattendance,jdbcType=DECIMAL},
+      goodsTotalIncome = #{goodstotalincome,jdbcType=DECIMAL},
+      newMemberNum = #{newmembernum,jdbcType=INTEGER},
+      turnOverRatio = #{turnoverratio,jdbcType=DECIMAL},
+      onlineTimes = #{onlinetimes,jdbcType=INTEGER},
+      onlineMembers = #{onlinemembers,jdbcType=INTEGER},
+      internetTimes = #{internettimes,jdbcType=INTEGER},
+      adwardTotal = #{adwardtotal,jdbcType=DECIMAL},
+      couponDeduction = #{coupondeduction,jdbcType=DECIMAL},
+      shiftName = #{shiftname,jdbcType=VARCHAR},
+      currentName = #{currentname,jdbcType=VARCHAR},
+      nextShiftName = #{nextshiftname,jdbcType=VARCHAR},
+      nextName = #{nextname,jdbcType=VARCHAR},
+      lastReserve = #{lastreserve,jdbcType=DECIMAL}
+    where dutyID = #{dutyid,jdbcType=INTEGER}
+  </update>
+</mapper>

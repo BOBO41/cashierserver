@@ -1,0 +1,447 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.archy.cash.dao.interfaces.NetbarOnlineMapper" >
+  <resultMap id="BaseResultMap" type="com.archy.cash.entity.NetbarOnline" >
+    <id column="onlineID" property="onlineid" jdbcType="BIGINT" />
+    <result column="tariffConfigID" property="tariffconfigid" jdbcType="INTEGER" />
+    <result column="memberID" property="memberid" jdbcType="BIGINT" />
+    <result column="onlineRoomID" property="onlineroomid" jdbcType="BIGINT" />
+    <result column="machineID" property="machineid" jdbcType="INTEGER" />
+    <result column="areaID" property="areaid" jdbcType="INTEGER" />
+    <result column="memberType" property="membertype" jdbcType="BIT" />
+    <result column="ruleID" property="ruleid" jdbcType="INTEGER" />
+    <result column="tariffType" property="tarifftype" jdbcType="BIT" />
+    <result column="ifRoomOwner" property="ifroomowner" jdbcType="BIT" />
+    <result column="startUser" property="startuser" jdbcType="INTEGER" />
+    <result column="startCardTime" property="startcardtime" jdbcType="TIMESTAMP" />
+    <result column="onlineStartTime" property="onlinestarttime" jdbcType="TIMESTAMP" />
+    <result column="offLineTime" property="offlinetime" jdbcType="TIMESTAMP" />
+    <result column="internetTime" property="internettime" jdbcType="DECIMAL" />
+    <result column="onlineFee" property="onlinefee" jdbcType="DECIMAL" />
+    <result column="state" property="state" jdbcType="BIT" />
+    <result column="gid" property="gid" jdbcType="INTEGER" />
+    <result column="dataVersion" property="dataversion" jdbcType="INTEGER" />
+    <result column="theDate" property="thedate" jdbcType="DATE" />
+    <result column="deposit" property="deposit" jdbcType="DECIMAL" />
+    <result column="baseBalance" property="basebalance" jdbcType="DECIMAL" />
+    <result column="awardBalance" property="awardbalance" jdbcType="DECIMAL" />
+    <result column="couponDeduction" property="coupondeduction" jdbcType="DECIMAL" />
+    <result column="depositState" property="depositstate" jdbcType="BIT" />
+    <result column="awardReserve" property="awardreserve" jdbcType="DECIMAL" />
+    <result column="baseReserve" property="basereserve" jdbcType="DECIMAL" />
+    <result column="payWay" property="payway" jdbcType="BIT" />
+    <result column="endWay" property="endway" jdbcType="BIT" />
+    <result column="actorUser" property="actoruser" jdbcType="INTEGER" />
+    <result column="actTime" property="acttime" jdbcType="TIMESTAMP" />
+    <result column="authoriseUser" property="authoriseuser" jdbcType="INTEGER" />
+    <result column="tariffDataVersion" property="tariffdataversion" jdbcType="INTEGER" />
+    <result column="areaName" property="areaname" jdbcType="VARCHAR" />
+    <result column="machineName" property="machinename" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    onlineID, tariffConfigID, memberID, onlineRoomID, machineID, areaID, memberType, 
+    ruleID, tariffType, ifRoomOwner, startUser, startCardTime, onlineStartTime, offLineTime, 
+    internetTime, onlineFee, state, gid, dataVersion, theDate, deposit, baseBalance, 
+    awardBalance, couponDeduction, depositState, awardReserve, baseReserve, payWay, endWay, 
+    actorUser, actTime, authoriseUser, tariffDataVersion, areaName, machineName
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from netbar_online
+    where onlineID = #{onlineid,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from netbar_online
+    where onlineID = #{onlineid,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.archy.cash.entity.NetbarOnline" >
+    insert into netbar_online (onlineID, tariffConfigID, memberID, 
+      onlineRoomID, machineID, areaID, 
+      memberType, ruleID, tariffType, 
+      ifRoomOwner, startUser, startCardTime, 
+      onlineStartTime, offLineTime, internetTime, 
+      onlineFee, state, gid, 
+      dataVersion, theDate, deposit, 
+      baseBalance, awardBalance, couponDeduction, 
+      depositState, awardReserve, baseReserve, 
+      payWay, endWay, actorUser, 
+      actTime, authoriseUser, tariffDataVersion, 
+      areaName, machineName)
+    values (#{onlineid,jdbcType=BIGINT}, #{tariffconfigid,jdbcType=INTEGER}, #{memberid,jdbcType=BIGINT}, 
+      #{onlineroomid,jdbcType=BIGINT}, #{machineid,jdbcType=INTEGER}, #{areaid,jdbcType=INTEGER}, 
+      #{membertype,jdbcType=BIT}, #{ruleid,jdbcType=INTEGER}, #{tarifftype,jdbcType=BIT}, 
+      #{ifroomowner,jdbcType=BIT}, #{startuser,jdbcType=INTEGER}, #{startcardtime,jdbcType=TIMESTAMP}, 
+      #{onlinestarttime,jdbcType=TIMESTAMP}, #{offlinetime,jdbcType=TIMESTAMP}, #{internettime,jdbcType=DECIMAL}, 
+      #{onlinefee,jdbcType=DECIMAL}, #{state,jdbcType=BIT}, #{gid,jdbcType=INTEGER}, 
+      #{dataversion,jdbcType=INTEGER}, #{thedate,jdbcType=DATE}, #{deposit,jdbcType=DECIMAL}, 
+      #{basebalance,jdbcType=DECIMAL}, #{awardbalance,jdbcType=DECIMAL}, #{coupondeduction,jdbcType=DECIMAL}, 
+      #{depositstate,jdbcType=BIT}, #{awardreserve,jdbcType=DECIMAL}, #{basereserve,jdbcType=DECIMAL}, 
+      #{payway,jdbcType=BIT}, #{endway,jdbcType=BIT}, #{actoruser,jdbcType=INTEGER}, 
+      #{acttime,jdbcType=TIMESTAMP}, #{authoriseuser,jdbcType=INTEGER}, #{tariffdataversion,jdbcType=INTEGER}, 
+      #{areaname,jdbcType=VARCHAR}, #{machinename,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.archy.cash.entity.NetbarOnline" >
+    insert into netbar_online
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="onlineid != null" >
+        onlineID,
+      </if>
+      <if test="tariffconfigid != null" >
+        tariffConfigID,
+      </if>
+      <if test="memberid != null" >
+        memberID,
+      </if>
+      <if test="onlineroomid != null" >
+        onlineRoomID,
+      </if>
+      <if test="machineid != null" >
+        machineID,
+      </if>
+      <if test="areaid != null" >
+        areaID,
+      </if>
+      <if test="membertype != null" >
+        memberType,
+      </if>
+      <if test="ruleid != null" >
+        ruleID,
+      </if>
+      <if test="tarifftype != null" >
+        tariffType,
+      </if>
+      <if test="ifroomowner != null" >
+        ifRoomOwner,
+      </if>
+      <if test="startuser != null" >
+        startUser,
+      </if>
+      <if test="startcardtime != null" >
+        startCardTime,
+      </if>
+      <if test="onlinestarttime != null" >
+        onlineStartTime,
+      </if>
+      <if test="offlinetime != null" >
+        offLineTime,
+      </if>
+      <if test="internettime != null" >
+        internetTime,
+      </if>
+      <if test="onlinefee != null" >
+        onlineFee,
+      </if>
+      <if test="state != null" >
+        state,
+      </if>
+      <if test="gid != null" >
+        gid,
+      </if>
+      <if test="dataversion != null" >
+        dataVersion,
+      </if>
+      <if test="thedate != null" >
+        theDate,
+      </if>
+      <if test="deposit != null" >
+        deposit,
+      </if>
+      <if test="basebalance != null" >
+        baseBalance,
+      </if>
+      <if test="awardbalance != null" >
+        awardBalance,
+      </if>
+      <if test="coupondeduction != null" >
+        couponDeduction,
+      </if>
+      <if test="depositstate != null" >
+        depositState,
+      </if>
+      <if test="awardreserve != null" >
+        awardReserve,
+      </if>
+      <if test="basereserve != null" >
+        baseReserve,
+      </if>
+      <if test="payway != null" >
+        payWay,
+      </if>
+      <if test="endway != null" >
+        endWay,
+      </if>
+      <if test="actoruser != null" >
+        actorUser,
+      </if>
+      <if test="acttime != null" >
+        actTime,
+      </if>
+      <if test="authoriseuser != null" >
+        authoriseUser,
+      </if>
+      <if test="tariffdataversion != null" >
+        tariffDataVersion,
+      </if>
+      <if test="areaname != null" >
+        areaName,
+      </if>
+      <if test="machinename != null" >
+        machineName,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="onlineid != null" >
+        #{onlineid,jdbcType=BIGINT},
+      </if>
+      <if test="tariffconfigid != null" >
+        #{tariffconfigid,jdbcType=INTEGER},
+      </if>
+      <if test="memberid != null" >
+        #{memberid,jdbcType=BIGINT},
+      </if>
+      <if test="onlineroomid != null" >
+        #{onlineroomid,jdbcType=BIGINT},
+      </if>
+      <if test="machineid != null" >
+        #{machineid,jdbcType=INTEGER},
+      </if>
+      <if test="areaid != null" >
+        #{areaid,jdbcType=INTEGER},
+      </if>
+      <if test="membertype != null" >
+        #{membertype,jdbcType=BIT},
+      </if>
+      <if test="ruleid != null" >
+        #{ruleid,jdbcType=INTEGER},
+      </if>
+      <if test="tarifftype != null" >
+        #{tarifftype,jdbcType=BIT},
+      </if>
+      <if test="ifroomowner != null" >
+        #{ifroomowner,jdbcType=BIT},
+      </if>
+      <if test="startuser != null" >
+        #{startuser,jdbcType=INTEGER},
+      </if>
+      <if test="startcardtime != null" >
+        #{startcardtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="onlinestarttime != null" >
+        #{onlinestarttime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="offlinetime != null" >
+        #{offlinetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="internettime != null" >
+        #{internettime,jdbcType=DECIMAL},
+      </if>
+      <if test="onlinefee != null" >
+        #{onlinefee,jdbcType=DECIMAL},
+      </if>
+      <if test="state != null" >
+        #{state,jdbcType=BIT},
+      </if>
+      <if test="gid != null" >
+        #{gid,jdbcType=INTEGER},
+      </if>
+      <if test="dataversion != null" >
+        #{dataversion,jdbcType=INTEGER},
+      </if>
+      <if test="thedate != null" >
+        #{thedate,jdbcType=DATE},
+      </if>
+      <if test="deposit != null" >
+        #{deposit,jdbcType=DECIMAL},
+      </if>
+      <if test="basebalance != null" >
+        #{basebalance,jdbcType=DECIMAL},
+      </if>
+      <if test="awardbalance != null" >
+        #{awardbalance,jdbcType=DECIMAL},
+      </if>
+      <if test="coupondeduction != null" >
+        #{coupondeduction,jdbcType=DECIMAL},
+      </if>
+      <if test="depositstate != null" >
+        #{depositstate,jdbcType=BIT},
+      </if>
+      <if test="awardreserve != null" >
+        #{awardreserve,jdbcType=DECIMAL},
+      </if>
+      <if test="basereserve != null" >
+        #{basereserve,jdbcType=DECIMAL},
+      </if>
+      <if test="payway != null" >
+        #{payway,jdbcType=BIT},
+      </if>
+      <if test="endway != null" >
+        #{endway,jdbcType=BIT},
+      </if>
+      <if test="actoruser != null" >
+        #{actoruser,jdbcType=INTEGER},
+      </if>
+      <if test="acttime != null" >
+        #{acttime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="authoriseuser != null" >
+        #{authoriseuser,jdbcType=INTEGER},
+      </if>
+      <if test="tariffdataversion != null" >
+        #{tariffdataversion,jdbcType=INTEGER},
+      </if>
+      <if test="areaname != null" >
+        #{areaname,jdbcType=VARCHAR},
+      </if>
+      <if test="machinename != null" >
+        #{machinename,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.archy.cash.entity.NetbarOnline" >
+    update netbar_online
+    <set >
+      <if test="tariffconfigid != null" >
+        tariffConfigID = #{tariffconfigid,jdbcType=INTEGER},
+      </if>
+      <if test="memberid != null" >
+        memberID = #{memberid,jdbcType=BIGINT},
+      </if>
+      <if test="onlineroomid != null" >
+        onlineRoomID = #{onlineroomid,jdbcType=BIGINT},
+      </if>
+      <if test="machineid != null" >
+        machineID = #{machineid,jdbcType=INTEGER},
+      </if>
+      <if test="areaid != null" >
+        areaID = #{areaid,jdbcType=INTEGER},
+      </if>
+      <if test="membertype != null" >
+        memberType = #{membertype,jdbcType=BIT},
+      </if>
+      <if test="ruleid != null" >
+        ruleID = #{ruleid,jdbcType=INTEGER},
+      </if>
+      <if test="tarifftype != null" >
+        tariffType = #{tarifftype,jdbcType=BIT},
+      </if>
+      <if test="ifroomowner != null" >
+        ifRoomOwner = #{ifroomowner,jdbcType=BIT},
+      </if>
+      <if test="startuser != null" >
+        startUser = #{startuser,jdbcType=INTEGER},
+      </if>
+      <if test="startcardtime != null" >
+        startCardTime = #{startcardtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="onlinestarttime != null" >
+        onlineStartTime = #{onlinestarttime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="offlinetime != null" >
+        offLineTime = #{offlinetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="internettime != null" >
+        internetTime = #{internettime,jdbcType=DECIMAL},
+      </if>
+      <if test="onlinefee != null" >
+        onlineFee = #{onlinefee,jdbcType=DECIMAL},
+      </if>
+      <if test="state != null" >
+        state = #{state,jdbcType=BIT},
+      </if>
+      <if test="gid != null" >
+        gid = #{gid,jdbcType=INTEGER},
+      </if>
+      <if test="dataversion != null" >
+        dataVersion = #{dataversion,jdbcType=INTEGER},
+      </if>
+      <if test="thedate != null" >
+        theDate = #{thedate,jdbcType=DATE},
+      </if>
+      <if test="deposit != null" >
+        deposit = #{deposit,jdbcType=DECIMAL},
+      </if>
+      <if test="basebalance != null" >
+        baseBalance = #{basebalance,jdbcType=DECIMAL},
+      </if>
+      <if test="awardbalance != null" >
+        awardBalance = #{awardbalance,jdbcType=DECIMAL},
+      </if>
+      <if test="coupondeduction != null" >
+        couponDeduction = #{coupondeduction,jdbcType=DECIMAL},
+      </if>
+      <if test="depositstate != null" >
+        depositState = #{depositstate,jdbcType=BIT},
+      </if>
+      <if test="awardreserve != null" >
+        awardReserve = #{awardreserve,jdbcType=DECIMAL},
+      </if>
+      <if test="basereserve != null" >
+        baseReserve = #{basereserve,jdbcType=DECIMAL},
+      </if>
+      <if test="payway != null" >
+        payWay = #{payway,jdbcType=BIT},
+      </if>
+      <if test="endway != null" >
+        endWay = #{endway,jdbcType=BIT},
+      </if>
+      <if test="actoruser != null" >
+        actorUser = #{actoruser,jdbcType=INTEGER},
+      </if>
+      <if test="acttime != null" >
+        actTime = #{acttime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="authoriseuser != null" >
+        authoriseUser = #{authoriseuser,jdbcType=INTEGER},
+      </if>
+      <if test="tariffdataversion != null" >
+        tariffDataVersion = #{tariffdataversion,jdbcType=INTEGER},
+      </if>
+      <if test="areaname != null" >
+        areaName = #{areaname,jdbcType=VARCHAR},
+      </if>
+      <if test="machinename != null" >
+        machineName = #{machinename,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where onlineID = #{onlineid,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.archy.cash.entity.NetbarOnline" >
+    update netbar_online
+    set tariffConfigID = #{tariffconfigid,jdbcType=INTEGER},
+      memberID = #{memberid,jdbcType=BIGINT},
+      onlineRoomID = #{onlineroomid,jdbcType=BIGINT},
+      machineID = #{machineid,jdbcType=INTEGER},
+      areaID = #{areaid,jdbcType=INTEGER},
+      memberType = #{membertype,jdbcType=BIT},
+      ruleID = #{ruleid,jdbcType=INTEGER},
+      tariffType = #{tarifftype,jdbcType=BIT},
+      ifRoomOwner = #{ifroomowner,jdbcType=BIT},
+      startUser = #{startuser,jdbcType=INTEGER},
+      startCardTime = #{startcardtime,jdbcType=TIMESTAMP},
+      onlineStartTime = #{onlinestarttime,jdbcType=TIMESTAMP},
+      offLineTime = #{offlinetime,jdbcType=TIMESTAMP},
+      internetTime = #{internettime,jdbcType=DECIMAL},
+      onlineFee = #{onlinefee,jdbcType=DECIMAL},
+      state = #{state,jdbcType=BIT},
+      gid = #{gid,jdbcType=INTEGER},
+      dataVersion = #{dataversion,jdbcType=INTEGER},
+      theDate = #{thedate,jdbcType=DATE},
+      deposit = #{deposit,jdbcType=DECIMAL},
+      baseBalance = #{basebalance,jdbcType=DECIMAL},
+      awardBalance = #{awardbalance,jdbcType=DECIMAL},
+      couponDeduction = #{coupondeduction,jdbcType=DECIMAL},
+      depositState = #{depositstate,jdbcType=BIT},
+      awardReserve = #{awardreserve,jdbcType=DECIMAL},
+      baseReserve = #{basereserve,jdbcType=DECIMAL},
+      payWay = #{payway,jdbcType=BIT},
+      endWay = #{endway,jdbcType=BIT},
+      actorUser = #{actoruser,jdbcType=INTEGER},
+      actTime = #{acttime,jdbcType=TIMESTAMP},
+      authoriseUser = #{authoriseuser,jdbcType=INTEGER},
+      tariffDataVersion = #{tariffdataversion,jdbcType=INTEGER},
+      areaName = #{areaname,jdbcType=VARCHAR},
+      machineName = #{machinename,jdbcType=VARCHAR}
+    where onlineID = #{onlineid,jdbcType=BIGINT}
+  </update>
+</mapper>
