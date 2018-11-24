@@ -1,4 +1,4 @@
-package com.archy.cash.web;
+package com.archy.cash.service;
 
 import com.archy.cash.dao.interfaces.NetbarDutyMapper;
 import com.archy.cash.entity.NetbarDuty;
