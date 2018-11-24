@@ -1,4 +1,4 @@
-package com.archy.secorder;
+package com.archy.cash;
 
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
@@ -6,7 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.support.SpringBootServletInitializer;
 
-@MapperScan("com.mingyang.secorder.dao.mapper")
+@MapperScan("com.mingyang.cash.dao.mapper")
 @SpringBootApplication
 public class SecorderApplication extends SpringBootServletInitializer {
 
