@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.archy.cash.dao.interfaces.NetbarDurationPriceMapper" >
+  <resultMap id="BaseResultMap" type="com.archy.cash.entity.NetbarDurationPrice" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="gid" property="gid" jdbcType="INTEGER" />
+    <result column="regionid" property="regionid" jdbcType="INTEGER" />
+    <result column="typeid" property="typeid" jdbcType="INTEGER" />
+    <result column="durationtime" property="durationtime" jdbcType="INTEGER" />
+    <result column="validbegintimestamp" property="validbegintimestamp" jdbcType="REAL" />
+    <result column="validendtimestamp" property="validendtimestamp" jdbcType="REAL" />
+    <result column="price" property="price" jdbcType="REAL" />
+    <result column="roomtype" property="roomtype" jdbcType="INTEGER" />
+    <result column="deleteflag" property="deleteflag" jdbcType="INTEGER" />
+    <result column="isdurationname" property="isdurationname" jdbcType="INTEGER" />
+    <result column="durationname" property="durationname" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, gid, regionid, typeid, durationtime, validbegintimestamp, validendtimestamp, 
+    price, roomtype, deleteflag, isdurationname, durationname
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from netbar_durationprice
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <insert id="insertSelective" parameterType="com.archy.cash.entity.NetbarDurationPrice" >
+    insert into netbar_durationprice
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="gid != null" >
+        gid,
+      </if>
+      <if test="regionid != null" >
+        regionid,
+      </if>
+      <if test="typeid != null" >
+        typeid,
+      </if>
+      <if test="durationtime != null" >
+        durationtime,
+      </if>
+      <if test="validbegintimestamp != null" >
+        validbegintimestamp,
+      </if>
+      <if test="validendtimestamp != null" >
+        validendtimestamp,
+      </if>
+      <if test="price != null" >
+        price,
+      </if>
+      <if test="roomtype != null" >
+        roomtype,
+      </if>
+      <if test="deleteflag != null" >
+        deleteflag,
+      </if>
+      <if test="isdurationname != null" >
+        isdurationname,
+      </if>
+      <if test="durationname != null" >
+        durationname,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="gid != null" >
+        #{gid,jdbcType=INTEGER},
+      </if>
+      <if test="regionid != null" >
+        #{regionid,jdbcType=INTEGER},
+      </if>
+      <if test="typeid != null" >
+        #{typeid,jdbcType=INTEGER},
+      </if>
+      <if test="durationtime != null" >
+        #{durationtime,jdbcType=INTEGER},
+      </if>
+      <if test="validbegintimestamp != null" >
+        #{validbegintimestamp,jdbcType=REAL},
+      </if>
+      <if test="validendtimestamp != null" >
+        #{validendtimestamp,jdbcType=REAL},
+      </if>
+      <if test="price != null" >
+        #{price,jdbcType=REAL},
+      </if>
+      <if test="roomtype != null" >
+        #{roomtype,jdbcType=INTEGER},
+      </if>
+      <if test="deleteflag != null" >
+        #{deleteflag,jdbcType=INTEGER},
+      </if>
+      <if test="isdurationname != null" >
+        #{isdurationname,jdbcType=INTEGER},
+      </if>
+      <if test="durationname != null" >
+        #{durationname,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.archy.cash.entity.NetbarDurationPrice" >
+    update netbar_durationprice
+    <set >
+      <if test="gid != null" >
+        gid = #{gid,jdbcType=INTEGER},
+      </if>
+      <if test="regionid != null" >
+        regionid = #{regionid,jdbcType=INTEGER},
+      </if>
+      <if test="typeid != null" >
+        typeid = #{typeid,jdbcType=INTEGER},
+      </if>
+      <if test="durationtime != null" >
+        durationtime = #{durationtime,jdbcType=INTEGER},
+      </if>
+      <if test="validbegintimestamp != null" >
+        validbegintimestamp = #{validbegintimestamp,jdbcType=REAL},
+      </if>
+      <if test="validendtimestamp != null" >
+        validendtimestamp = #{validendtimestamp,jdbcType=REAL},
+      </if>
+      <if test="price != null" >
+        price = #{price,jdbcType=REAL},
+      </if>
+      <if test="roomtype != null" >
+        roomtype = #{roomtype,jdbcType=INTEGER},
+      </if>
+      <if test="deleteflag != null" >
+        deleteflag = #{deleteflag,jdbcType=INTEGER},
+      </if>
+      <if test="isdurationname != null" >
+        isdurationname = #{isdurationname,jdbcType=INTEGER},
+      </if>
+      <if test="durationname != null" >
+        durationname = #{durationname,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
