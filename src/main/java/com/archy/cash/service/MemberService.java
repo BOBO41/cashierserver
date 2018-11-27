@@ -19,7 +19,7 @@ public class MemberService {
         member.setAccount(account);
         member.setMembername(name);
 
-
+        
 
         member.setCashbalance(0);
 
