@@ -3,7 +3,6 @@ package com.archy.cash.entity;
 import java.util.Date;
 
 public class NetbarMember {
-    private Long memberid;
 
     private String account;
 
@@ -57,12 +56,34 @@ public class NetbarMember {
 
     private Boolean ifbindingwx;
 
-    public Long getMemberid() {
-        return memberid;
+    private Integer cashbalance;
+
+    private Integer basebalance;
+
+    private Integer awardbalance;
+
+    public Integer getCashbalance() {
+        return cashbalance;
     }
 
-    public void setMemberid(Long memberid) {
-        this.memberid = memberid;
+    public void setCashbalance(Integer cashbalance) {
+        this.cashbalance = cashbalance;
+    }
+
+    public Integer getBasebalance() {
+        return basebalance;
+    }
+
+    public void setBasebalance(Integer basebalance) {
+        this.basebalance = basebalance;
+    }
+
+    public Integer getAwardbalance() {
+        return awardbalance;
+    }
+
+    public void setAwardbalance(Integer awardbalance) {
+        this.awardbalance = awardbalance;
     }
 
     public String getAccount() {
