@@ -28,24 +28,6 @@
     from netbar_baseinfo
     where gid = #{gid,jdbcType=INTEGER}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
-    delete from netbar_baseinfo
-    where gid = #{gid,jdbcType=INTEGER}
-  </delete>
-  <insert id="insert" parameterType="com.archy.cash.entity.NetbarBaseInfo" >
-    insert into netbar_baseinfo (gid, netBarName, ifChain, 
-      tid, proviceID, cityID, 
-      districtID, address, pcNum, 
-      principal, thePhone, setupTime, 
-      dataVersion, lat, lng
-      )
-    values (#{gid,jdbcType=INTEGER}, #{netbarname,jdbcType=INTEGER}, #{ifchain,jdbcType=BIT}, 
-      #{tid,jdbcType=INTEGER}, #{proviceid,jdbcType=TINYINT}, #{cityid,jdbcType=INTEGER}, 
-      #{districtid,jdbcType=INTEGER}, #{address,jdbcType=VARCHAR}, #{pcnum,jdbcType=INTEGER}, 
-      #{principal,jdbcType=VARCHAR}, #{thephone,jdbcType=VARCHAR}, #{setuptime,jdbcType=TIMESTAMP}, 
-      #{dataversion,jdbcType=INTEGER}, #{lat,jdbcType=DECIMAL}, #{lng,jdbcType=DECIMAL}
-      )
-  </insert>
   <insert id="insertSelective" parameterType="com.archy.cash.entity.NetbarBaseInfo" >
     insert into netbar_baseinfo
     <trim prefix="(" suffix=")" suffixOverrides="," >
@@ -189,24 +171,6 @@
         lng = #{lng,jdbcType=DECIMAL},
       </if>
     </set>
-    where gid = #{gid,jdbcType=INTEGER}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.archy.cash.entity.NetbarBaseInfo" >
-    update netbar_baseinfo
-    set netBarName = #{netbarname,jdbcType=INTEGER},
-      ifChain = #{ifchain,jdbcType=BIT},
-      tid = #{tid,jdbcType=INTEGER},
-      proviceID = #{proviceid,jdbcType=TINYINT},
-      cityID = #{cityid,jdbcType=INTEGER},
-      districtID = #{districtid,jdbcType=INTEGER},
-      address = #{address,jdbcType=VARCHAR},
-      pcNum = #{pcnum,jdbcType=INTEGER},
-      principal = #{principal,jdbcType=VARCHAR},
-      thePhone = #{thephone,jdbcType=VARCHAR},
-      setupTime = #{setuptime,jdbcType=TIMESTAMP},
-      dataVersion = #{dataversion,jdbcType=INTEGER},
-      lat = #{lat,jdbcType=DECIMAL},
-      lng = #{lng,jdbcType=DECIMAL}
     where gid = #{gid,jdbcType=INTEGER}
   </update>
 </mapper>

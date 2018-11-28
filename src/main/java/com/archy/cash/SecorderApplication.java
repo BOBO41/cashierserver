@@ -1,14 +1,18 @@
 package com.archy.cash;
 
+import com.archy.cash.service.CashService;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.support.SpringBootServletInitializer;
 
+import javax.annotation.Resource;
+
 @MapperScan("com.mingyang.cash.dao.mapper")
 @SpringBootApplication
 public class SecorderApplication extends SpringBootServletInitializer {
+
 
     public static void main(String[] args) {
         SpringApplication.run(SecorderApplication.class, args);

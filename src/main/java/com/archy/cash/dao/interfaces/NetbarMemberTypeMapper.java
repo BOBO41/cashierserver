@@ -3,10 +3,9 @@ package com.archy.cash.dao.interfaces;
 import com.archy.cash.entity.NetbarMemberType;
 import org.apache.ibatis.annotations.Param;
 
-public interface NetbarMemberTypeMapper {
-    int deleteByPrimaryKey(@Param("membertypeplanid") Integer membertypeplanid, @Param("membertypeid") Integer membertypeid);
+import java.util.List;
 
-    int insert(NetbarMemberType record);
+public interface NetbarMemberTypeMapper {
 
     int insertSelective(NetbarMemberType record);
 
@@ -14,5 +13,6 @@ public interface NetbarMemberTypeMapper {
 
     int updateByPrimaryKeySelective(NetbarMemberType record);
 
-    int updateByPrimaryKey(NetbarMemberType record);
+    List<NetbarMemberType> selectByGid(Integer gid);
+
 }

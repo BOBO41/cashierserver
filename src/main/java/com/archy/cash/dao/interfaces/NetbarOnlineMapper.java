@@ -2,16 +2,15 @@ package com.archy.cash.dao.interfaces;
 
 import com.archy.cash.entity.NetbarOnline;
 
-public interface NetbarOnlineMapper {
-    int deleteByPrimaryKey(Long onlineid);
+import java.util.List;
 
-    int insert(NetbarOnline record);
+public interface NetbarOnlineMapper {
 
     int insertSelective(NetbarOnline record);
 
     NetbarOnline selectByPrimaryKey(Long onlineid);
 
+
     int updateByPrimaryKeySelective(NetbarOnline record);
 
-    int updateByPrimaryKey(NetbarOnline record);
 }

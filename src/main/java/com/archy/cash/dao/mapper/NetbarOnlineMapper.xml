@@ -51,36 +51,6 @@
     from netbar_online
     where onlineID = #{onlineid,jdbcType=BIGINT}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
-    delete from netbar_online
-    where onlineID = #{onlineid,jdbcType=BIGINT}
-  </delete>
-  <insert id="insert" parameterType="com.archy.cash.entity.NetbarOnline" >
-    insert into netbar_online (onlineID, tariffConfigID, memberID, 
-      onlineRoomID, machineID, areaID, 
-      memberType, ruleID, tariffType, 
-      ifRoomOwner, startUser, startCardTime, 
-      onlineStartTime, offLineTime, internetTime, 
-      onlineFee, state, gid, 
-      dataVersion, theDate, deposit, 
-      baseBalance, awardBalance, couponDeduction, 
-      depositState, awardReserve, baseReserve, 
-      payWay, endWay, actorUser, 
-      actTime, authoriseUser, tariffDataVersion, 
-      areaName, machineName)
-    values (#{onlineid,jdbcType=BIGINT}, #{tariffconfigid,jdbcType=INTEGER}, #{memberid,jdbcType=BIGINT}, 
-      #{onlineroomid,jdbcType=BIGINT}, #{machineid,jdbcType=INTEGER}, #{areaid,jdbcType=INTEGER}, 
-      #{membertype,jdbcType=BIT}, #{ruleid,jdbcType=INTEGER}, #{tarifftype,jdbcType=BIT}, 
-      #{ifroomowner,jdbcType=BIT}, #{startuser,jdbcType=INTEGER}, #{startcardtime,jdbcType=TIMESTAMP}, 
-      #{onlinestarttime,jdbcType=TIMESTAMP}, #{offlinetime,jdbcType=TIMESTAMP}, #{internettime,jdbcType=DECIMAL}, 
-      #{onlinefee,jdbcType=DECIMAL}, #{state,jdbcType=BIT}, #{gid,jdbcType=INTEGER}, 
-      #{dataversion,jdbcType=INTEGER}, #{thedate,jdbcType=DATE}, #{deposit,jdbcType=DECIMAL}, 
-      #{basebalance,jdbcType=DECIMAL}, #{awardbalance,jdbcType=DECIMAL}, #{coupondeduction,jdbcType=DECIMAL}, 
-      #{depositstate,jdbcType=BIT}, #{awardreserve,jdbcType=DECIMAL}, #{basereserve,jdbcType=DECIMAL}, 
-      #{payway,jdbcType=BIT}, #{endway,jdbcType=BIT}, #{actoruser,jdbcType=INTEGER}, 
-      #{acttime,jdbcType=TIMESTAMP}, #{authoriseuser,jdbcType=INTEGER}, #{tariffdataversion,jdbcType=INTEGER}, 
-      #{areaname,jdbcType=VARCHAR}, #{machinename,jdbcType=VARCHAR})
-  </insert>
   <insert id="insertSelective" parameterType="com.archy.cash.entity.NetbarOnline" >
     insert into netbar_online
     <trim prefix="(" suffix=")" suffixOverrides="," >
@@ -404,44 +374,6 @@
         machineName = #{machinename,jdbcType=VARCHAR},
       </if>
     </set>
-    where onlineID = #{onlineid,jdbcType=BIGINT}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.archy.cash.entity.NetbarOnline" >
-    update netbar_online
-    set tariffConfigID = #{tariffconfigid,jdbcType=INTEGER},
-      memberID = #{memberid,jdbcType=BIGINT},
-      onlineRoomID = #{onlineroomid,jdbcType=BIGINT},
-      machineID = #{machineid,jdbcType=INTEGER},
-      areaID = #{areaid,jdbcType=INTEGER},
-      memberType = #{membertype,jdbcType=BIT},
-      ruleID = #{ruleid,jdbcType=INTEGER},
-      tariffType = #{tarifftype,jdbcType=BIT},
-      ifRoomOwner = #{ifroomowner,jdbcType=BIT},
-      startUser = #{startuser,jdbcType=INTEGER},
-      startCardTime = #{startcardtime,jdbcType=TIMESTAMP},
-      onlineStartTime = #{onlinestarttime,jdbcType=TIMESTAMP},
-      offLineTime = #{offlinetime,jdbcType=TIMESTAMP},
-      internetTime = #{internettime,jdbcType=DECIMAL},
-      onlineFee = #{onlinefee,jdbcType=DECIMAL},
-      state = #{state,jdbcType=BIT},
-      gid = #{gid,jdbcType=INTEGER},
-      dataVersion = #{dataversion,jdbcType=INTEGER},
-      theDate = #{thedate,jdbcType=DATE},
-      deposit = #{deposit,jdbcType=DECIMAL},
-      baseBalance = #{basebalance,jdbcType=DECIMAL},
-      awardBalance = #{awardbalance,jdbcType=DECIMAL},
-      couponDeduction = #{coupondeduction,jdbcType=DECIMAL},
-      depositState = #{depositstate,jdbcType=BIT},
-      awardReserve = #{awardreserve,jdbcType=DECIMAL},
-      baseReserve = #{basereserve,jdbcType=DECIMAL},
-      payWay = #{payway,jdbcType=BIT},
-      endWay = #{endway,jdbcType=BIT},
-      actorUser = #{actoruser,jdbcType=INTEGER},
-      actTime = #{acttime,jdbcType=TIMESTAMP},
-      authoriseUser = #{authoriseuser,jdbcType=INTEGER},
-      tariffDataVersion = #{tariffdataversion,jdbcType=INTEGER},
-      areaName = #{areaname,jdbcType=VARCHAR},
-      machineName = #{machinename,jdbcType=VARCHAR}
     where onlineID = #{onlineid,jdbcType=BIGINT}
   </update>
 </mapper>

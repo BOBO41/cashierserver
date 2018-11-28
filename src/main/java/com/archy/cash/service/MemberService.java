@@ -5,6 +5,7 @@ import com.archy.cash.entity.NetbarMember;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 @Service
 public class MemberService {
@@ -25,6 +26,22 @@ public class MemberService {
 
         return member;
     }
+
+    public NetbarMember updateMember(String account,String name,Integer memberType){
+
+        return null;
+    }
+
+    public NetbarMember queryMember(String account){
+
+        return null;
+    }
+
+    public List<NetbarMember> searchMember(String name){
+
+        return null;
+    }
+
 
 
 }

@@ -50,36 +50,6 @@
     from netbar_duty
     where dutyID = #{dutyid,jdbcType=INTEGER}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
-    delete from netbar_duty
-    where dutyID = #{dutyid,jdbcType=INTEGER}
-  </delete>
-  <insert id="insert" parameterType="com.archy.cash.entity.NetbarDuty" >
-    insert into netbar_duty (dutyID, shiftID, currentSum, 
-      currentCash, currentDeliver, currentReserve, 
-      dutyDate, dutyBeginTime, dutyEndTime, 
-      state, remark, dataVersion, 
-      gid, generateFrom, nextShiftID, 
-      currentnetBarUserID, nextnetBarUserID, 
-      submitTime, totalIncome, totalConsume, 
-      totalAttendance, goodsTotalIncome, newMemberNum, 
-      turnOverRatio, onlineTimes, onlineMembers, 
-      internetTimes, adwardTotal, couponDeduction, 
-      shiftName, currentName, nextShiftName, 
-      nextName, lastReserve)
-    values (#{dutyid,jdbcType=INTEGER}, #{shiftid,jdbcType=INTEGER}, #{currentsum,jdbcType=DECIMAL}, 
-      #{currentcash,jdbcType=DECIMAL}, #{currentdeliver,jdbcType=DECIMAL}, #{currentreserve,jdbcType=DECIMAL}, 
-      #{dutydate,jdbcType=DATE}, #{dutybegintime,jdbcType=TIMESTAMP}, #{dutyendtime,jdbcType=TIMESTAMP}, 
-      #{state,jdbcType=BIT}, #{remark,jdbcType=VARCHAR}, #{dataversion,jdbcType=INTEGER}, 
-      #{gid,jdbcType=INTEGER}, #{generatefrom,jdbcType=BIT}, #{nextshiftid,jdbcType=INTEGER}, 
-      #{currentnetbaruserid,jdbcType=INTEGER}, #{nextnetbaruserid,jdbcType=INTEGER}, 
-      #{submittime,jdbcType=TIMESTAMP}, #{totalincome,jdbcType=DECIMAL}, #{totalconsume,jdbcType=DECIMAL}, 
-      #{totalattendance,jdbcType=DECIMAL}, #{goodstotalincome,jdbcType=DECIMAL}, #{newmembernum,jdbcType=INTEGER}, 
-      #{turnoverratio,jdbcType=DECIMAL}, #{onlinetimes,jdbcType=INTEGER}, #{onlinemembers,jdbcType=INTEGER}, 
-      #{internettimes,jdbcType=INTEGER}, #{adwardtotal,jdbcType=DECIMAL}, #{coupondeduction,jdbcType=DECIMAL}, 
-      #{shiftname,jdbcType=VARCHAR}, #{currentname,jdbcType=VARCHAR}, #{nextshiftname,jdbcType=VARCHAR}, 
-      #{nextname,jdbcType=VARCHAR}, #{lastreserve,jdbcType=DECIMAL})
-  </insert>
   <insert id="insertSelective" parameterType="com.archy.cash.entity.NetbarDuty" >
     insert into netbar_duty
     <trim prefix="(" suffix=")" suffixOverrides="," >
@@ -394,43 +364,6 @@
         lastReserve = #{lastreserve,jdbcType=DECIMAL},
       </if>
     </set>
-    where dutyID = #{dutyid,jdbcType=INTEGER}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.archy.cash.entity.NetbarDuty" >
-    update netbar_duty
-    set shiftID = #{shiftid,jdbcType=INTEGER},
-      currentSum = #{currentsum,jdbcType=DECIMAL},
-      currentCash = #{currentcash,jdbcType=DECIMAL},
-      currentDeliver = #{currentdeliver,jdbcType=DECIMAL},
-      currentReserve = #{currentreserve,jdbcType=DECIMAL},
-      dutyDate = #{dutydate,jdbcType=DATE},
-      dutyBeginTime = #{dutybegintime,jdbcType=TIMESTAMP},
-      dutyEndTime = #{dutyendtime,jdbcType=TIMESTAMP},
-      state = #{state,jdbcType=BIT},
-      remark = #{remark,jdbcType=VARCHAR},
-      dataVersion = #{dataversion,jdbcType=INTEGER},
-      gid = #{gid,jdbcType=INTEGER},
-      generateFrom = #{generatefrom,jdbcType=BIT},
-      nextShiftID = #{nextshiftid,jdbcType=INTEGER},
-      currentnetBarUserID = #{currentnetbaruserid,jdbcType=INTEGER},
-      nextnetBarUserID = #{nextnetbaruserid,jdbcType=INTEGER},
-      submitTime = #{submittime,jdbcType=TIMESTAMP},
-      totalIncome = #{totalincome,jdbcType=DECIMAL},
-      totalConsume = #{totalconsume,jdbcType=DECIMAL},
-      totalAttendance = #{totalattendance,jdbcType=DECIMAL},
-      goodsTotalIncome = #{goodstotalincome,jdbcType=DECIMAL},
-      newMemberNum = #{newmembernum,jdbcType=INTEGER},
-      turnOverRatio = #{turnoverratio,jdbcType=DECIMAL},
-      onlineTimes = #{onlinetimes,jdbcType=INTEGER},
-      onlineMembers = #{onlinemembers,jdbcType=INTEGER},
-      internetTimes = #{internettimes,jdbcType=INTEGER},
-      adwardTotal = #{adwardtotal,jdbcType=DECIMAL},
-      couponDeduction = #{coupondeduction,jdbcType=DECIMAL},
-      shiftName = #{shiftname,jdbcType=VARCHAR},
-      currentName = #{currentname,jdbcType=VARCHAR},
-      nextShiftName = #{nextshiftname,jdbcType=VARCHAR},
-      nextName = #{nextname,jdbcType=VARCHAR},
-      lastReserve = #{lastreserve,jdbcType=DECIMAL}
     where dutyID = #{dutyid,jdbcType=INTEGER}
   </update>
 </mapper>

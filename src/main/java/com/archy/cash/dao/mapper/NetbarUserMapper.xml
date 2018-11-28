@@ -28,22 +28,6 @@
     from netbar_user
     where netbarUserId = #{netbaruserid,jdbcType=INTEGER}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
-    delete from netbar_user
-    where netbarUserId = #{netbaruserid,jdbcType=INTEGER}
-  </delete>
-  <insert id="insert" parameterType="com.archy.cash.entity.NetbarUser" >
-    insert into netbar_user (netbarUserId, account, memberName, 
-      birthday, sex, password, 
-      phone, state, ifAuth, ifCashierLogin, 
-      dataVersion, gid, authoriseCode, 
-      roleIds, accountLevel)
-    values (#{netbaruserid,jdbcType=INTEGER}, #{account,jdbcType=VARCHAR}, #{membername,jdbcType=VARCHAR}, 
-      #{birthday,jdbcType=TIMESTAMP}, #{sex,jdbcType=BIT}, #{password,jdbcType=VARCHAR}, 
-      #{phone,jdbcType=VARCHAR}, #{state,jdbcType=BIT}, #{ifauth,jdbcType=BIT}, #{ifcashierlogin,jdbcType=BIT}, 
-      #{dataversion,jdbcType=INTEGER}, #{gid,jdbcType=INTEGER}, #{authorisecode,jdbcType=VARCHAR}, 
-      #{roleids,jdbcType=VARCHAR}, #{accountlevel,jdbcType=BIT})
-  </insert>
   <insert id="insertSelective" parameterType="com.archy.cash.entity.NetbarUser" >
     insert into netbar_user
     <trim prefix="(" suffix=")" suffixOverrides="," >
@@ -187,24 +171,6 @@
         accountLevel = #{accountlevel,jdbcType=BIT},
       </if>
     </set>
-    where netbarUserId = #{netbaruserid,jdbcType=INTEGER}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.archy.cash.entity.NetbarUser" >
-    update netbar_user
-    set account = #{account,jdbcType=VARCHAR},
-      memberName = #{membername,jdbcType=VARCHAR},
-      birthday = #{birthday,jdbcType=TIMESTAMP},
-      sex = #{sex,jdbcType=BIT},
-      password = #{password,jdbcType=VARCHAR},
-      phone = #{phone,jdbcType=VARCHAR},
-      state = #{state,jdbcType=BIT},
-      ifAuth = #{ifauth,jdbcType=BIT},
-      ifCashierLogin = #{ifcashierlogin,jdbcType=BIT},
-      dataVersion = #{dataversion,jdbcType=INTEGER},
-      gid = #{gid,jdbcType=INTEGER},
-      authoriseCode = #{authorisecode,jdbcType=VARCHAR},
-      roleIds = #{roleids,jdbcType=VARCHAR},
-      accountLevel = #{accountlevel,jdbcType=BIT}
     where netbarUserId = #{netbaruserid,jdbcType=INTEGER}
   </update>
 </mapper>

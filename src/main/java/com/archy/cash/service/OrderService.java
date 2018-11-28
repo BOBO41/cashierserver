@@ -11,4 +11,10 @@ public class OrderService {
     @Resource
     private NetbarRechargeOrder netbarRechargeOrder;
 
+    public void chargeMember(){
+
+
+
+    }
+
 }

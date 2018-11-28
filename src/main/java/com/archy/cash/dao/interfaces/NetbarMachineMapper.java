@@ -2,16 +2,16 @@ package com.archy.cash.dao.interfaces;
 
 import com.archy.cash.entity.NetbarMachine;
 
-public interface NetbarMachineMapper {
-    int deleteByPrimaryKey(Integer machineid);
+import java.util.List;
 
-    int insert(NetbarMachine record);
+public interface NetbarMachineMapper {
 
     int insertSelective(NetbarMachine record);
 
     NetbarMachine selectByPrimaryKey(Integer machineid);
 
+    List<NetbarMachine> selectByGid(Integer gid);
+
     int updateByPrimaryKeySelective(NetbarMachine record);
 
-    int updateByPrimaryKey(NetbarMachine record);
 }

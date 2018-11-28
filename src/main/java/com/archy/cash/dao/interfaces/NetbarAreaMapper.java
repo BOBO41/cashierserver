@@ -3,10 +3,9 @@ package com.archy.cash.dao.interfaces;
 import com.archy.cash.entity.NetbarArea;
 import org.apache.ibatis.annotations.Param;
 
-public interface NetbarAreaMapper {
-    int deleteByPrimaryKey(@Param("areaid") Integer areaid, @Param("gid") Integer gid);
+import java.util.List;
 
-    int insert(NetbarArea record);
+public interface NetbarAreaMapper {
 
     int insertSelective(NetbarArea record);
 
@@ -14,5 +13,6 @@ public interface NetbarAreaMapper {
 
     int updateByPrimaryKeySelective(NetbarArea record);
 
-    int updateByPrimaryKey(NetbarArea record);
+    List<NetbarArea> selectByGid(Integer gid);
+
 }

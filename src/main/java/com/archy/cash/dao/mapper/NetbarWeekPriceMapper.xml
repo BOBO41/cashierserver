@@ -21,6 +21,12 @@
     from netbar_weekprice
     where id = #{id,jdbcType=INTEGER}
   </select>
+  <select id="selectByGid" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+    select
+    <include refid="Base_Column_List" />
+    from netbar_weekprice
+    where gid = #{gid,jdbcType=INTEGER}
+  </select>
   <insert id="insertSelective" parameterType="com.archy.cash.entity.NetbarWeekPrice" >
     insert into netbar_weekprice
     <trim prefix="(" suffix=")" suffixOverrides="," >

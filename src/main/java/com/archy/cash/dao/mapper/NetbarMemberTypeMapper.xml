@@ -19,19 +19,12 @@
     where memberTypePlanID = #{membertypeplanid,jdbcType=INTEGER}
       and memberTypeID = #{membertypeid,jdbcType=INTEGER}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="map" >
-    delete from netbar_membertype
-    where memberTypePlanID = #{membertypeplanid,jdbcType=INTEGER}
-      and memberTypeID = #{membertypeid,jdbcType=INTEGER}
-  </delete>
-  <insert id="insert" parameterType="com.archy.cash.entity.NetbarMemberType" >
-    insert into netbar_membertype (memberTypePlanID, memberTypeID, parasTypeName, 
-      dataVersion, gid, theOrder
-      )
-    values (#{membertypeplanid,jdbcType=INTEGER}, #{membertypeid,jdbcType=INTEGER}, #{parastypename,jdbcType=VARCHAR}, 
-      #{dataversion,jdbcType=INTEGER}, #{gid,jdbcType=INTEGER}, #{theorder,jdbcType=INTEGER}
-      )
-  </insert>
+  <select id="selectByGid" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+    select
+    <include refid="Base_Column_List" />
+    from netbar_membertype
+    where gid = #{gid,jdbcType=INTEGER}
+  </select>
   <insert id="insertSelective" parameterType="com.archy.cash.entity.NetbarMemberType" >
     insert into netbar_membertype
     <trim prefix="(" suffix=")" suffixOverrides="," >
@@ -91,15 +84,6 @@
         theOrder = #{theorder,jdbcType=INTEGER},
       </if>
     </set>
-    where memberTypePlanID = #{membertypeplanid,jdbcType=INTEGER}
-      and memberTypeID = #{membertypeid,jdbcType=INTEGER}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.archy.cash.entity.NetbarMemberType" >
-    update netbar_membertype
-    set parasTypeName = #{parastypename,jdbcType=VARCHAR},
-      dataVersion = #{dataversion,jdbcType=INTEGER},
-      gid = #{gid,jdbcType=INTEGER},
-      theOrder = #{theorder,jdbcType=INTEGER}
     where memberTypePlanID = #{membertypeplanid,jdbcType=INTEGER}
       and memberTypeID = #{membertypeid,jdbcType=INTEGER}
   </update>

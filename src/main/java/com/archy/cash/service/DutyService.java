@@ -13,7 +13,16 @@ public class DutyService {
     private NetbarDutyMapper netbarDutyMapper;
 
 
+    public void queryDutyInfo(){
 
+
+    }
+
+    public void submitDuty(){
+
+
+
+    }
 
 
 }

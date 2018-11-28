@@ -19,7 +19,12 @@
     from netbar_extracost
     where id = #{id,jdbcType=INTEGER}
   </select>
-
+  <select id="selectByGid" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+    select
+    <include refid="Base_Column_List" />
+    from netbar_extracost
+    where id = #{id,jdbcType=INTEGER}
+  </select>
   <insert id="insertSelective" parameterType="com.archy.cash.entity.NetbarExtraCost" >
     insert into netbar_extracost
     <trim prefix="(" suffix=")" suffixOverrides="," >

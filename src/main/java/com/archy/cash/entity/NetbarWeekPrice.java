@@ -19,6 +19,8 @@ public class NetbarWeekPrice {
 
     private String price;
 
+    private Float weekprices[];
+
     public Integer getId() {
         return id;
     }
@@ -90,4 +92,13 @@ public class NetbarWeekPrice {
     public void setPrice(String price) {
         this.price = price == null ? null : price.trim();
     }
+
+    public Float[] getWeekprices() {
+        return weekprices;
+    }
+
+    public float findWeekprice(int week,int hour){
+        return weekprices[week*24 + hour];
+    }
+
 }

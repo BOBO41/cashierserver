@@ -48,36 +48,6 @@
     from netbar_billing
     where billingID = #{billingid,jdbcType=BIGINT}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
-    delete from netbar_billing
-    where billingID = #{billingid,jdbcType=BIGINT}
-  </delete>
-  <insert id="insert" parameterType="com.archy.cash.entity.NetbarBIlling" >
-    insert into netbar_billing (billingID, gid, tariffConfigID, 
-      ruleID, startTime, endTime, 
-      theDate, tariffDataVersion, tariffType, 
-      ratioCostBase, ratioCostAward, discount, 
-      periodStartTime, periodEndTime, lastCostTimestamp, 
-      nextCostTimestamp, maxEndTimestamp, 
-      currentCostBase, currentCostAward, currentCostTemp, 
-      allHadCost, ignoreTime, startPrice, 
-      hourPrice, wholeTimestamp, startCost, 
-      checkStart, periodOrder, memberID, 
-      roomOwner, additionalFee, onlineID
-      )
-    values (#{billingid,jdbcType=BIGINT}, #{gid,jdbcType=INTEGER}, #{tariffconfigid,jdbcType=INTEGER}, 
-      #{ruleid,jdbcType=INTEGER}, #{starttime,jdbcType=TIMESTAMP}, #{endtime,jdbcType=TIMESTAMP}, 
-      #{thedate,jdbcType=DATE}, #{tariffdataversion,jdbcType=INTEGER}, #{tarifftype,jdbcType=BIT}, 
-      #{ratiocostbase,jdbcType=BIT}, #{ratiocostaward,jdbcType=BIT}, #{discount,jdbcType=DECIMAL}, 
-      #{periodstarttime,jdbcType=DECIMAL}, #{periodendtime,jdbcType=DECIMAL}, #{lastcosttimestamp,jdbcType=TIMESTAMP}, 
-      #{nextcosttimestamp,jdbcType=TIMESTAMP}, #{maxendtimestamp,jdbcType=TIMESTAMP}, 
-      #{currentcostbase,jdbcType=DECIMAL}, #{currentcostaward,jdbcType=DECIMAL}, #{currentcosttemp,jdbcType=DECIMAL}, 
-      #{allhadcost,jdbcType=DECIMAL}, #{ignoretime,jdbcType=INTEGER}, #{startprice,jdbcType=DECIMAL}, 
-      #{hourprice,jdbcType=DECIMAL}, #{wholetimestamp,jdbcType=INTEGER}, #{startcost,jdbcType=DECIMAL}, 
-      #{checkstart,jdbcType=BIT}, #{periodorder,jdbcType=BIT}, #{memberid,jdbcType=BIGINT}, 
-      #{roomowner,jdbcType=BIT}, #{additionalfee,jdbcType=DECIMAL}, #{onlineid,jdbcType=BIGINT}
-      )
-  </insert>
   <insert id="insertSelective" parameterType="com.archy.cash.entity.NetbarBIlling" >
     insert into netbar_billing
     <trim prefix="(" suffix=")" suffixOverrides="," >
@@ -374,41 +344,6 @@
         onlineID = #{onlineid,jdbcType=BIGINT},
       </if>
     </set>
-    where billingID = #{billingid,jdbcType=BIGINT}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.archy.cash.entity.NetbarBIlling" >
-    update netbar_billing
-    set gid = #{gid,jdbcType=INTEGER},
-      tariffConfigID = #{tariffconfigid,jdbcType=INTEGER},
-      ruleID = #{ruleid,jdbcType=INTEGER},
-      startTime = #{starttime,jdbcType=TIMESTAMP},
-      endTime = #{endtime,jdbcType=TIMESTAMP},
-      theDate = #{thedate,jdbcType=DATE},
-      tariffDataVersion = #{tariffdataversion,jdbcType=INTEGER},
-      tariffType = #{tarifftype,jdbcType=BIT},
-      ratioCostBase = #{ratiocostbase,jdbcType=BIT},
-      ratioCostAward = #{ratiocostaward,jdbcType=BIT},
-      discount = #{discount,jdbcType=DECIMAL},
-      periodStartTime = #{periodstarttime,jdbcType=DECIMAL},
-      periodEndTime = #{periodendtime,jdbcType=DECIMAL},
-      lastCostTimestamp = #{lastcosttimestamp,jdbcType=TIMESTAMP},
-      nextCostTimestamp = #{nextcosttimestamp,jdbcType=TIMESTAMP},
-      maxEndTimestamp = #{maxendtimestamp,jdbcType=TIMESTAMP},
-      currentCostBase = #{currentcostbase,jdbcType=DECIMAL},
-      currentCostAward = #{currentcostaward,jdbcType=DECIMAL},
-      currentCostTemp = #{currentcosttemp,jdbcType=DECIMAL},
-      allHadCost = #{allhadcost,jdbcType=DECIMAL},
-      ignoreTime = #{ignoretime,jdbcType=INTEGER},
-      startPrice = #{startprice,jdbcType=DECIMAL},
-      hourPrice = #{hourprice,jdbcType=DECIMAL},
-      wholeTimestamp = #{wholetimestamp,jdbcType=INTEGER},
-      startCost = #{startcost,jdbcType=DECIMAL},
-      checkStart = #{checkstart,jdbcType=BIT},
-      periodOrder = #{periodorder,jdbcType=BIT},
-      memberID = #{memberid,jdbcType=BIGINT},
-      roomOwner = #{roomowner,jdbcType=BIT},
-      additionalFee = #{additionalfee,jdbcType=DECIMAL},
-      onlineID = #{onlineid,jdbcType=BIGINT}
     where billingID = #{billingid,jdbcType=BIGINT}
   </update>
 </mapper>

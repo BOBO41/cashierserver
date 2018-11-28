@@ -26,6 +26,12 @@
     from netbar_periodprice
     where id = #{id,jdbcType=INTEGER}
   </select>
+  <select id="selectByGid" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+    select
+    <include refid="Base_Column_List" />
+    from netbar_periodprice
+    where gid = # {gid=jdbcType=INTEGER}
+  </select>
   <insert id="insertSelective" parameterType="com.archy.cash.entity.NetbarPeriodPrice" >
     insert into netbar_periodprice
     <trim prefix="(" suffix=")" suffixOverrides="," >

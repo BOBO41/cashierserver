@@ -24,20 +24,12 @@
     from netbar_machine
     where machineID = #{machineid,jdbcType=INTEGER}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
-    delete from netbar_machine
-    where machineID = #{machineid,jdbcType=INTEGER}
-  </delete>
-  <insert id="insert" parameterType="com.archy.cash.entity.NetbarMachine" >
-    insert into netbar_machine (machineID, machineName, areaId, 
-      state, dataVersion, gid, 
-      mac, ip, ipMask, createDate, 
-      lastUpdateDate)
-    values (#{machineid,jdbcType=INTEGER}, #{machinename,jdbcType=VARCHAR}, #{areaid,jdbcType=INTEGER}, 
-      #{state,jdbcType=BIT}, #{dataversion,jdbcType=INTEGER}, #{gid,jdbcType=INTEGER}, 
-      #{mac,jdbcType=VARCHAR}, #{ip,jdbcType=VARCHAR}, #{ipmask,jdbcType=VARCHAR}, #{createdate,jdbcType=TIMESTAMP}, 
-      #{lastupdatedate,jdbcType=TIMESTAMP})
-  </insert>
+  <select id="selectByGid" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+    select
+    <include refid="Base_Column_List" />
+    from netbar_machine
+    where gid = #{gid,jdbcType=INTEGER}
+  </select>
   <insert id="insertSelective" parameterType="com.archy.cash.entity.NetbarMachine" >
     insert into netbar_machine
     <trim prefix="(" suffix=")" suffixOverrides="," >
@@ -145,20 +137,6 @@
         lastUpdateDate = #{lastupdatedate,jdbcType=TIMESTAMP},
       </if>
     </set>
-    where machineID = #{machineid,jdbcType=INTEGER}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.archy.cash.entity.NetbarMachine" >
-    update netbar_machine
-    set machineName = #{machinename,jdbcType=VARCHAR},
-      areaId = #{areaid,jdbcType=INTEGER},
-      state = #{state,jdbcType=BIT},
-      dataVersion = #{dataversion,jdbcType=INTEGER},
-      gid = #{gid,jdbcType=INTEGER},
-      mac = #{mac,jdbcType=VARCHAR},
-      ip = #{ip,jdbcType=VARCHAR},
-      ipMask = #{ipmask,jdbcType=VARCHAR},
-      createDate = #{createdate,jdbcType=TIMESTAMP},
-      lastUpdateDate = #{lastupdatedate,jdbcType=TIMESTAMP}
     where machineID = #{machineid,jdbcType=INTEGER}
   </update>
 </mapper>
