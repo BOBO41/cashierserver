@@ -6,10 +6,12 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.support.SpringBootServletInitializer;
+import org.springframework.scheduling.annotation.EnableScheduling;
 
 import javax.annotation.Resource;
 
 @MapperScan("com.mingyang.cash.dao.mapper")
+@EnableScheduling
 @SpringBootApplication
 public class SecorderApplication extends SpringBootServletInitializer {
 

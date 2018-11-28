@@ -38,8 +38,6 @@ public class CashService {
     @Resource
     private NetbarOnlineMapper netbarOnlineMapper;
 
-
-
     private Map<Long, NetbarMember> onlineMember = new HashMap<Long,NetbarMember>();
 
     private List<NetbarMachine> machineList = new ArrayList<NetbarMachine>();
@@ -76,7 +74,9 @@ public class CashService {
 
         this.extraCostList = this.netbarExtraCostMapper.selectByGid(gid);
 
+    }
 
+    public void tick(){
 
 
 
