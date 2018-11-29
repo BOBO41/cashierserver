@@ -15,7 +15,6 @@ public class DutyService {
 
     public void queryDutyInfo(){
 
-
     }
 
     public void submitDuty(){

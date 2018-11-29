@@ -14,7 +14,7 @@ public class NetbarMember {
 
     private Date birthday;
 
-    private Boolean sex;
+    private Integer sex;
 
     private String password;
 
@@ -26,7 +26,7 @@ public class NetbarMember {
 
     private String identifypath;
 
-    private Boolean membertype;
+    private Integer membertype;
 
     private Boolean state;
 
@@ -41,10 +41,6 @@ public class NetbarMember {
     private Integer gid;
 
     private Integer dataversion;
-
-    private Boolean certificatetype;
-
-    private String certificatenum;
 
     private Byte proviceid;
 
@@ -126,11 +122,11 @@ public class NetbarMember {
         this.birthday = birthday;
     }
 
-    public Boolean getSex() {
+    public Integer getSex() {
         return sex;
     }
 
-    public void setSex(Boolean sex) {
+    public void setSex(Integer sex) {
         this.sex = sex;
     }
 
@@ -174,11 +170,11 @@ public class NetbarMember {
         this.identifypath = identifypath == null ? null : identifypath.trim();
     }
 
-    public Boolean getMembertype() {
+    public Integer getMembertype() {
         return membertype;
     }
 
-    public void setMembertype(Boolean membertype) {
+    public void setMembertype(Integer membertype) {
         this.membertype = membertype;
     }
 
@@ -236,22 +232,6 @@ public class NetbarMember {
 
     public void setDataversion(Integer dataversion) {
         this.dataversion = dataversion;
-    }
-
-    public Boolean getCertificatetype() {
-        return certificatetype;
-    }
-
-    public void setCertificatetype(Boolean certificatetype) {
-        this.certificatetype = certificatetype;
-    }
-
-    public String getCertificatenum() {
-        return certificatenum;
-    }
-
-    public void setCertificatenum(String certificatenum) {
-        this.certificatenum = certificatenum == null ? null : certificatenum.trim();
     }
 
     public Byte getProviceid() {

@@ -38,7 +38,7 @@ public class CashService {
     @Resource
     private NetbarOnlineMapper netbarOnlineMapper;
 
-    private Map<Long, NetbarMember> onlineMember = new HashMap<Long,NetbarMember>();
+    private Map<String, NetbarMember> onlineMember = new HashMap<String, NetbarMember>();
 
     private List<NetbarMachine> machineList = new ArrayList<NetbarMachine>();
 
@@ -55,6 +55,10 @@ public class CashService {
     private List<NetbarExtraCost> extraCostList = new ArrayList<>();
 
     private Integer gid;
+
+    public int getGid(){
+        return this.gid;
+    }
 
     public void init(Integer gid){
 
@@ -75,6 +79,20 @@ public class CashService {
         this.extraCostList = this.netbarExtraCostMapper.selectByGid(gid);
 
     }
+
+    public NetbarMember findByAccount(String account){
+        return this.onlineMember.get(account);
+    }
+
+    public NetbarMemberType findMemberType(Integer typeId){
+        for(NetbarMemberType type : this.memberTypeList){
+            if(type.getMembertypeid().intValue() == typeId.intValue()){
+                return type;
+            }
+        }
+        return null;
+    }
+
 
     public void tick(){
 

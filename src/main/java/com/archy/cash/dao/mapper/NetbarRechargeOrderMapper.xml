@@ -4,12 +4,12 @@
   <resultMap id="BaseResultMap" type="com.archy.cash.entity.NetbarRechargeOrder" >
     <id column="rechargeOrderID" property="rechargeorderid" jdbcType="BIGINT" />
     <result column="rechargeCompaignID" property="rechargecompaignid" jdbcType="INTEGER" />
-    <result column="memberID" property="memberid" jdbcType="BIGINT" />
+    <result column="account" property="account" jdbcType="VARCHAR" />
     <result column="rechargeWay" property="rechargeway" jdbcType="BIT" />
     <result column="rechargeType" property="rechargetype" jdbcType="BIT" />
-    <result column="deposit" property="deposit" jdbcType="DECIMAL" />
-    <result column="rechargeFee" property="rechargefee" jdbcType="DECIMAL" />
-    <result column="adwardFee" property="adwardfee" jdbcType="DECIMAL" />
+    <result column="deposit" property="deposit" jdbcType="INTEGER" />
+    <result column="rechargeFee" property="rechargefee" jdbcType="INTEGER" />
+    <result column="adwardFee" property="adwardfee" jdbcType="INTEGER" />
     <result column="state" property="state" jdbcType="BIT" />
     <result column="posAccount" property="posaccount" jdbcType="INTEGER" />
     <result column="rechargeDate" property="rechargedate" jdbcType="TIMESTAMP" />
@@ -20,7 +20,7 @@
     <result column="oldRechargeOrderID" property="oldrechargeorderid" jdbcType="BIGINT" />
   </resultMap>
   <sql id="Base_Column_List" >
-    rechargeOrderID, rechargeCompaignID, memberID, rechargeWay, rechargeType, deposit, 
+    rechargeOrderID, rechargeCompaignID, account, rechargeWay, rechargeType, deposit,
     rechargeFee, adwardFee, state, posAccount, rechargeDate, dataVersion, rechargeSource, 
     gid, lastUpdateDate, oldRechargeOrderID
   </sql>
@@ -39,8 +39,8 @@
       <if test="rechargecompaignid != null" >
         rechargeCompaignID,
       </if>
-      <if test="memberid != null" >
-        memberID,
+      <if test="account != null" >
+        account,
       </if>
       <if test="rechargeway != null" >
         rechargeWay,
@@ -89,8 +89,8 @@
       <if test="rechargecompaignid != null" >
         #{rechargecompaignid,jdbcType=INTEGER},
       </if>
-      <if test="memberid != null" >
-        #{memberid,jdbcType=BIGINT},
+      <if test="account != null" >
+        #{account,jdbcType=VARCHAR},
       </if>
       <if test="rechargeway != null" >
         #{rechargeway,jdbcType=BIT},
@@ -99,13 +99,13 @@
         #{rechargetype,jdbcType=BIT},
       </if>
       <if test="deposit != null" >
-        #{deposit,jdbcType=DECIMAL},
+        #{deposit,jdbcType=INTEGER},
       </if>
       <if test="rechargefee != null" >
-        #{rechargefee,jdbcType=DECIMAL},
+        #{rechargefee,jdbcType=INTEGER},
       </if>
       <if test="adwardfee != null" >
-        #{adwardfee,jdbcType=DECIMAL},
+        #{adwardfee,jdbcType=INTEGER},
       </if>
       <if test="state != null" >
         #{state,jdbcType=BIT},
@@ -139,8 +139,8 @@
       <if test="rechargecompaignid != null" >
         rechargeCompaignID = #{rechargecompaignid,jdbcType=INTEGER},
       </if>
-      <if test="memberid != null" >
-        memberID = #{memberid,jdbcType=BIGINT},
+      <if test="account != null" >
+        account = #{account,jdbcType=VARCHAR},
       </if>
       <if test="rechargeway != null" >
         rechargeWay = #{rechargeway,jdbcType=BIT},
@@ -149,13 +149,13 @@
         rechargeType = #{rechargetype,jdbcType=BIT},
       </if>
       <if test="deposit != null" >
-        deposit = #{deposit,jdbcType=DECIMAL},
+        deposit = #{deposit,jdbcType=INTEGER},
       </if>
       <if test="rechargefee != null" >
-        rechargeFee = #{rechargefee,jdbcType=DECIMAL},
+        rechargeFee = #{rechargefee,jdbcType=INTEGER},
       </if>
       <if test="adwardfee != null" >
-        adwardFee = #{adwardfee,jdbcType=DECIMAL},
+        adwardFee = #{adwardfee,jdbcType=INTEGER},
       </if>
       <if test="state != null" >
         state = #{state,jdbcType=BIT},

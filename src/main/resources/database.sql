@@ -56,25 +56,37 @@ CREATE TABLE `netbar_duty` (
   PRIMARY KEY (`dutyID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='交接班记录';
 
+CREATE TABLE `netbar_recharge_compaign` (
+  `rechargeCompaignID` int(11) NOT NULL COMMENT '充值活动ID',
+  `memberType` int(1) NOT NULL COMMENT '会员类型（1、临时卡；2、工作人员；3-青铜会员、4-白银会员、5-黄金会员、6-白金会员、7-钻石会员)',
+  `rechargeFee` int(11) NOT NULL COMMENT '机器id',
+  `additionalFee` int(11) DEFAULT NULL COMMENT '赠送金额',
+  `state` tinyint(1) DEFAULT NULL COMMENT '状态（1、有效；0、无效）',
+  `beginDate` datetime DEFAULT NULL COMMENT '有效开始日期',
+  `endDate` datetime DEFAULT NULL COMMENT '有效结束日期',
+  `dataVersion` int(11) DEFAULT NULL COMMENT '数据版本',
+  `gid` int(11) DEFAULT NULL COMMENT '网吧GID',
+  PRIMARY KEY (`rechargeCompaignID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='充值活动信息';
+
 CREATE TABLE `netbar_recharge_order` (
   `rechargeOrderID` bigint(30) unsigned NOT NULL COMMENT '充值订单id',
   `rechargeCompaignID` int(11) DEFAULT NULL COMMENT '充值活动ID',
-  `memberID` bigint(20) unsigned DEFAULT NULL COMMENT '网吧会员ID',
-  `rechargeWay` tinyint(1) DEFAULT NULL COMMENT '充值方式（1、微信；2、银行卡；3、支付宝；4、现金）',
-  `rechargeType` tinyint(1) DEFAULT NULL COMMENT '充值类型（1、账户充值；2、押金充值）',
-  `deposit` decimal(8,2) DEFAULT NULL COMMENT '押金',
-  `rechargeFee` decimal(8,2) DEFAULT '0.00' COMMENT '充值金额',
-  `adwardFee` decimal(8,2) DEFAULT '0.00' COMMENT '赠送金额',
+  `account` varchar(30) DEFAULT NULL COMMENT '网吧会员',
+  `rechargeWay` int(11) DEFAULT NULL COMMENT '充值方式（1、现金,2、微信,3、支付bao）',
+  `rechargeType` int(11) DEFAULT NULL COMMENT '充值类型（1、账户充值；2、押金充值）',
+  `deposit` int DEFAULT NULL COMMENT '押金',
+  `rechargeFee` int DEFAULT '0.00' COMMENT '充值金额',
+  `adwardFee` int DEFAULT '0.00' COMMENT '赠送金额',
   `state` tinyint(1) DEFAULT NULL COMMENT '状态（1、待付款；2、已付款待处理；3、已成功；4、已退款；5、已作废；6、已充正）',
   `posAccount` int(11) DEFAULT NULL COMMENT '收银员账号',
   `rechargeDate` datetime DEFAULT NULL COMMENT '充值创建日期',
   `dataVersion` int(11) DEFAULT NULL COMMENT '数据版本',
-  `rechargeSource` tinyint(1) DEFAULT NULL COMMENT '充值来源（1、网吧客户端；2、网吧收银端；3、微信端；4、云端）',
+  `rechargeSource` int(11) DEFAULT NULL COMMENT '充值来源（1、网吧客户端；2、网吧收银端；3、手机端）',
   `gid` int(11) DEFAULT NULL COMMENT '网吧GID',
   `lastUpdateDate` datetime DEFAULT NULL COMMENT '最后更新时间',
   `oldRechargeOrderID` bigint(30) DEFAULT NULL COMMENT '原充值订单ID',
-  PRIMARY KEY (`rechargeOrderID`),
-  KEY `idx_memberID` (`memberID`)
+  PRIMARY KEY (`rechargeOrderID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='充值订单';
 
 

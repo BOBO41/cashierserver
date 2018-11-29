@@ -7,13 +7,13 @@
     <result column="userId" property="userid" jdbcType="INTEGER" />
     <result column="memberName" property="membername" jdbcType="VARCHAR" />
     <result column="birthday" property="birthday" jdbcType="TIMESTAMP" />
-    <result column="sex" property="sex" jdbcType="BIT" />
+    <result column="sex" property="sex" jdbcType="INTEGER" />
     <result column="password" property="password" jdbcType="VARCHAR" />
     <result column="phone" property="phone" jdbcType="VARCHAR" />
     <result column="qq" property="qq" jdbcType="VARCHAR" />
     <result column="openID" property="openid" jdbcType="VARCHAR" />
     <result column="identifyPath" property="identifypath" jdbcType="VARCHAR" />
-    <result column="memberType" property="membertype" jdbcType="BIT" />
+    <result column="memberType" property="membertype" jdbcType="INTEGER" />
     <result column="state" property="state" jdbcType="BIT" />
     <result column="creator" property="creator" jdbcType="INTEGER" />
     <result column="createDate" property="createdate" jdbcType="TIMESTAMP" />
@@ -21,8 +21,6 @@
     <result column="lastUpdateDate" property="lastupdatedate" jdbcType="TIMESTAMP" />
     <result column="gid" property="gid" jdbcType="INTEGER" />
     <result column="dataVersion" property="dataversion" jdbcType="INTEGER" />
-    <result column="certificateType" property="certificatetype" jdbcType="BIT" />
-    <result column="certificateNum" property="certificatenum" jdbcType="VARCHAR" />
     <result column="proviceID" property="proviceid" jdbcType="TINYINT" />
     <result column="cityID" property="cityid" jdbcType="INTEGER" />
     <result column="districtID" property="districtid" jdbcType="INTEGER" />
@@ -35,14 +33,26 @@
   <sql id="Base_Column_List" >
     account, uid, userId, memberName, birthday, sex, password, phone, qq, openID,
     identifyPath, memberType, state, creator, createDate, lastUpdate, lastUpdateDate, 
-    gid, dataVersion, certificateType, certificateNum, proviceID, cityID, districtID, 
+    gid, dataVersion, proviceID, cityID, districtID,
     address, ifBindingWX,cashbalance,basebalance,awardbalance
   </sql>
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
-    select 
+  <select id="selectByAccount" resultMap="BaseResultMap" parameterType="java.lang.String">
+    select
     <include refid="Base_Column_List" />
     from netbar_member
-    where memberID = #{memberid,jdbcType=BIGINT}
+    where account = #{account,jdbcType=VARCHAR}
+  </select>
+  <select id="selectByPhone" resultMap="BaseResultMap" parameterType="java.lang.String">
+    select
+    <include refid="Base_Column_List" />
+    from netbar_member
+    where phone = #{phone,jdbcType=VARCHAR}
+  </select>
+  <select id="queryByName" resultMap="BaseResultMap" parameterType="java.lang.String">
+    select
+    <include refid="Base_Column_List" />
+    from netbar_member
+    where memberName like concat(concat('%',#{name,jdbcType=VARCHAR}),'%')
   </select>
   <insert id="insertSelective" parameterType="com.archy.cash.entity.NetbarMember" >
     insert into netbar_member
@@ -104,12 +114,6 @@
       <if test="dataversion != null" >
         dataVersion,
       </if>
-      <if test="certificatetype != null" >
-        certificateType,
-      </if>
-      <if test="certificatenum != null" >
-        certificateNum,
-      </if>
       <if test="proviceid != null" >
         proviceID,
       </if>
@@ -152,7 +156,7 @@
         #{birthday,jdbcType=TIMESTAMP},
       </if>
       <if test="sex != null" >
-        #{sex,jdbcType=BIT},
+        #{sex,jdbcType=INTEGER},
       </if>
       <if test="password != null" >
         #{password,jdbcType=VARCHAR},
@@ -170,7 +174,7 @@
         #{identifypath,jdbcType=VARCHAR},
       </if>
       <if test="membertype != null" >
-        #{membertype,jdbcType=BIT},
+        #{membertype,jdbcType=INTEGER},
       </if>
       <if test="state != null" >
         #{state,jdbcType=BIT},
@@ -192,12 +196,6 @@
       </if>
       <if test="dataversion != null" >
         #{dataversion,jdbcType=INTEGER},
-      </if>
-      <if test="certificatetype != null" >
-        #{certificatetype,jdbcType=BIT},
-      </if>
-      <if test="certificatenum != null" >
-        #{certificatenum,jdbcType=VARCHAR},
       </if>
       <if test="proviceid != null" >
         #{proviceid,jdbcType=TINYINT},
@@ -241,7 +239,7 @@
         birthday = #{birthday,jdbcType=TIMESTAMP},
       </if>
       <if test="sex != null" >
-        sex = #{sex,jdbcType=BIT},
+        sex = #{sex,jdbcType=INTEGER},
       </if>
       <if test="password != null" >
         password = #{password,jdbcType=VARCHAR},
@@ -259,7 +257,7 @@
         identifyPath = #{identifypath,jdbcType=VARCHAR},
       </if>
       <if test="membertype != null" >
-        memberType = #{membertype,jdbcType=BIT},
+        memberType = #{membertype,jdbcType=INTEGER},
       </if>
       <if test="state != null" >
         state = #{state,jdbcType=BIT},
@@ -281,12 +279,6 @@
       </if>
       <if test="dataversion != null" >
         dataVersion = #{dataversion,jdbcType=INTEGER},
-      </if>
-      <if test="certificatetype != null" >
-        certificateType = #{certificatetype,jdbcType=BIT},
-      </if>
-      <if test="certificatenum != null" >
-        certificateNum = #{certificatenum,jdbcType=VARCHAR},
       </if>
       <if test="proviceid != null" >
         proviceID = #{proviceid,jdbcType=TINYINT},

@@ -8,17 +8,17 @@ public class NetbarRechargeOrder {
 
     private Integer rechargecompaignid;
 
-    private Long memberid;
+    private String account;
 
-    private Boolean rechargeway;
+    private Integer rechargeway;
 
-    private Boolean rechargetype;
+    private Integer rechargetype;
 
-    private BigDecimal deposit;
+    private Integer deposit;
 
-    private BigDecimal rechargefee;
+    private Integer rechargefee;
 
-    private BigDecimal adwardfee;
+    private Integer adwardfee;
 
     private Boolean state;
 
@@ -28,7 +28,7 @@ public class NetbarRechargeOrder {
 
     private Integer dataversion;
 
-    private Boolean rechargesource;
+    private Integer rechargesource;
 
     private Integer gid;
 
@@ -52,51 +52,51 @@ public class NetbarRechargeOrder {
         this.rechargecompaignid = rechargecompaignid;
     }
 
-    public Long getMemberid() {
-        return memberid;
+    public String getAccount() {
+        return account;
     }
 
-    public void setMemberid(Long memberid) {
-        this.memberid = memberid;
+    public void setAccount(String account) {
+        this.account = account;
     }
 
-    public Boolean getRechargeway() {
+    public Integer getRechargeway() {
         return rechargeway;
     }
 
-    public void setRechargeway(Boolean rechargeway) {
+    public void setRechargeway(Integer rechargeway) {
         this.rechargeway = rechargeway;
     }
 
-    public Boolean getRechargetype() {
+    public Integer getRechargetype() {
         return rechargetype;
     }
 
-    public void setRechargetype(Boolean rechargetype) {
+    public void setRechargetype(Integer rechargetype) {
         this.rechargetype = rechargetype;
     }
 
-    public BigDecimal getDeposit() {
+    public Integer getDeposit() {
         return deposit;
     }
 
-    public void setDeposit(BigDecimal deposit) {
+    public void setDeposit(Integer deposit) {
         this.deposit = deposit;
     }
 
-    public BigDecimal getRechargefee() {
+    public Integer getRechargefee() {
         return rechargefee;
     }
 
-    public void setRechargefee(BigDecimal rechargefee) {
+    public void setRechargefee(Integer rechargefee) {
         this.rechargefee = rechargefee;
     }
 
-    public BigDecimal getAdwardfee() {
+    public Integer getAdwardfee() {
         return adwardfee;
     }
 
-    public void setAdwardfee(BigDecimal adwardfee) {
+    public void setAdwardfee(Integer adwardfee) {
         this.adwardfee = adwardfee;
     }
 
@@ -132,11 +132,11 @@ public class NetbarRechargeOrder {
         this.dataversion = dataversion;
     }
 
-    public Boolean getRechargesource() {
+    public Integer getRechargesource() {
         return rechargesource;
     }
 
-    public void setRechargesource(Boolean rechargesource) {
+    public void setRechargesource(Integer rechargesource) {
         this.rechargesource = rechargesource;
     }
 
