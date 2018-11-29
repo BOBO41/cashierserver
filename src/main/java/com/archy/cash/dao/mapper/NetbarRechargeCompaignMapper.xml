@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.archy.cash.dao.interfaces.NetbarRechargeCompaignMapper" >
+  <resultMap id="BaseResultMap" type="com.archy.cash.entity.NetbarRechargeCompaign" >
+    <id column="rechargeCompaignID" property="rechargecompaignid" jdbcType="INTEGER" />
+    <result column="memberType" property="membertype" jdbcType="INTEGER" />
+    <result column="rechargeFee" property="rechargefee" jdbcType="INTEGER" />
+    <result column="additionalFee" property="additionalfee" jdbcType="INTEGER" />
+    <result column="state" property="state" jdbcType="BIT" />
+    <result column="beginDate" property="begindate" jdbcType="TIMESTAMP" />
+    <result column="endDate" property="enddate" jdbcType="TIMESTAMP" />
+    <result column="dataVersion" property="dataversion" jdbcType="INTEGER" />
+    <result column="gid" property="gid" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    rechargeCompaignID, memberType, rechargeFee, additionalFee, state, beginDate, endDate, 
+    dataVersion, gid
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from netbar_recharge_compaign
+    where rechargeCompaignID = #{rechargecompaignid,jdbcType=INTEGER}
+  </select>
+  <select id="selectByGid" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+    select
+    <include refid="Base_Column_List" />
+    from netbar_recharge_compaign
+    where gid = #{gid,jdbcType=INTEGER}
+  </select>
+  <insert id="insertSelective" parameterType="com.archy.cash.entity.NetbarRechargeCompaign" >
+    insert into netbar_recharge_compaign
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="rechargecompaignid != null" >
+        rechargeCompaignID,
+      </if>
+      <if test="membertype != null" >
+        memberType,
+      </if>
+      <if test="rechargefee != null" >
+        rechargeFee,
+      </if>
+      <if test="additionalfee != null" >
+        additionalFee,
+      </if>
+      <if test="state != null" >
+        state,
+      </if>
+      <if test="begindate != null" >
+        beginDate,
+      </if>
+      <if test="enddate != null" >
+        endDate,
+      </if>
+      <if test="dataversion != null" >
+        dataVersion,
+      </if>
+      <if test="gid != null" >
+        gid,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="rechargecompaignid != null" >
+        #{rechargecompaignid,jdbcType=INTEGER},
+      </if>
+      <if test="membertype != null" >
+        #{membertype,jdbcType=INTEGER},
+      </if>
+      <if test="rechargefee != null" >
+        #{rechargefee,jdbcType=INTEGER},
+      </if>
+      <if test="additionalfee != null" >
+        #{additionalfee,jdbcType=INTEGER},
+      </if>
+      <if test="state != null" >
+        #{state,jdbcType=BIT},
+      </if>
+      <if test="begindate != null" >
+        #{begindate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="enddate != null" >
+        #{enddate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="dataversion != null" >
+        #{dataversion,jdbcType=INTEGER},
+      </if>
+      <if test="gid != null" >
+        #{gid,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.archy.cash.entity.NetbarRechargeCompaign" >
+    update netbar_recharge_compaign
+    <set >
+      <if test="membertype != null" >
+        memberType = #{membertype,jdbcType=INTEGER},
+      </if>
+      <if test="rechargefee != null" >
+        rechargeFee = #{rechargefee,jdbcType=INTEGER},
+      </if>
+      <if test="additionalfee != null" >
+        additionalFee = #{additionalfee,jdbcType=INTEGER},
+      </if>
+      <if test="state != null" >
+        state = #{state,jdbcType=BIT},
+      </if>
+      <if test="begindate != null" >
+        beginDate = #{begindate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="enddate != null" >
+        endDate = #{enddate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="dataversion != null" >
+        dataVersion = #{dataversion,jdbcType=INTEGER},
+      </if>
+      <if test="gid != null" >
+        gid = #{gid,jdbcType=INTEGER},
+      </if>
+    </set>
+    where rechargeCompaignID = #{rechargecompaignid,jdbcType=INTEGER}
+  </update>
+</mapper>
