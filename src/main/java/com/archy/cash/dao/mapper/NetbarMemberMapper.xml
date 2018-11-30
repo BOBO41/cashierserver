@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.archy.cash.dao.interfaces.NetbarMemberMapper" >
+<mapper namespace="com.archy.cash.dao.interfaces.er" >
   <resultMap id="BaseResultMap" type="com.archy.cash.entity.NetbarMember" >
     <id column="account" property="account" jdbcType="VARCHAR" />
     <result column="uid" property="uid" jdbcType="INTEGER" />
@@ -10,9 +10,7 @@
     <result column="sex" property="sex" jdbcType="INTEGER" />
     <result column="password" property="password" jdbcType="VARCHAR" />
     <result column="phone" property="phone" jdbcType="VARCHAR" />
-    <result column="qq" property="qq" jdbcType="VARCHAR" />
     <result column="openID" property="openid" jdbcType="VARCHAR" />
-    <result column="identifyPath" property="identifypath" jdbcType="VARCHAR" />
     <result column="memberType" property="membertype" jdbcType="INTEGER" />
     <result column="state" property="state" jdbcType="BIT" />
     <result column="creator" property="creator" jdbcType="INTEGER" />
@@ -21,20 +19,15 @@
     <result column="lastUpdateDate" property="lastupdatedate" jdbcType="TIMESTAMP" />
     <result column="gid" property="gid" jdbcType="INTEGER" />
     <result column="dataVersion" property="dataversion" jdbcType="INTEGER" />
-    <result column="proviceID" property="proviceid" jdbcType="TINYINT" />
-    <result column="cityID" property="cityid" jdbcType="INTEGER" />
-    <result column="districtID" property="districtid" jdbcType="INTEGER" />
     <result column="address" property="address" jdbcType="VARCHAR" />
-    <result column="ifBindingWX" property="ifbindingwx" jdbcType="BIT" />
     <result column="cashbalance" property="cashbalance" jdbcType="INTEGER" />
     <result column="basebalance" property="basebalance" jdbcType="INTEGER" />
       <result column="awardbalance" property="awardbalance" jdbcType="INTEGER" />
   </resultMap>
   <sql id="Base_Column_List" >
-    account, uid, userId, memberName, birthday, sex, password, phone, qq, openID,
-    identifyPath, memberType, state, creator, createDate, lastUpdate, lastUpdateDate, 
-    gid, dataVersion, proviceID, cityID, districtID,
-    address, ifBindingWX,cashbalance,basebalance,awardbalance
+    account, uid, userId, memberName, birthday, sex, password, phone, openID, memberType, state, creator, createDate, lastUpdate, lastUpdateDate,
+    gid, dataVersion,
+    address,cashbalance,basebalance,awardbalance
   </sql>
   <select id="selectByAccount" resultMap="BaseResultMap" parameterType="java.lang.String">
     select
@@ -87,9 +80,6 @@
       <if test="openid != null" >
         openID,
       </if>
-      <if test="identifypath != null" >
-        identifyPath,
-      </if>
       <if test="membertype != null" >
         memberType,
       </if>
@@ -114,20 +104,8 @@
       <if test="dataversion != null" >
         dataVersion,
       </if>
-      <if test="proviceid != null" >
-        proviceID,
-      </if>
-      <if test="cityid != null" >
-        cityID,
-      </if>
-      <if test="districtid != null" >
-        districtID,
-      </if>
       <if test="address != null" >
         address,
-      </if>
-      <if test="ifbindingwx != null" >
-        ifBindingWX,
       </if>
       <if test="cashbalance != null">
         cashbalance,
@@ -170,9 +148,6 @@
       <if test="openid != null" >
         #{openid,jdbcType=VARCHAR},
       </if>
-      <if test="identifypath != null" >
-        #{identifypath,jdbcType=VARCHAR},
-      </if>
       <if test="membertype != null" >
         #{membertype,jdbcType=INTEGER},
       </if>
@@ -197,20 +172,8 @@
       <if test="dataversion != null" >
         #{dataversion,jdbcType=INTEGER},
       </if>
-      <if test="proviceid != null" >
-        #{proviceid,jdbcType=TINYINT},
-      </if>
-      <if test="cityid != null" >
-        #{cityid,jdbcType=INTEGER},
-      </if>
-      <if test="districtid != null" >
-        #{districtid,jdbcType=INTEGER},
-      </if>
       <if test="address != null" >
         #{address,jdbcType=VARCHAR},
-      </if>
-      <if test="ifbindingwx != null" >
-        #{ifbindingwx,jdbcType=BIT},
       </if>
         <if test="cashbalance != null">
             #{cashbalance,jdbcType=INTEGER},
@@ -253,9 +216,6 @@
       <if test="openid != null" >
         openID = #{openid,jdbcType=VARCHAR},
       </if>
-      <if test="identifypath != null" >
-        identifyPath = #{identifypath,jdbcType=VARCHAR},
-      </if>
       <if test="membertype != null" >
         memberType = #{membertype,jdbcType=INTEGER},
       </if>
@@ -280,21 +240,11 @@
       <if test="dataversion != null" >
         dataVersion = #{dataversion,jdbcType=INTEGER},
       </if>
-      <if test="proviceid != null" >
-        proviceID = #{proviceid,jdbcType=TINYINT},
-      </if>
-      <if test="cityid != null" >
-        cityID = #{cityid,jdbcType=INTEGER},
-      </if>
-      <if test="districtid != null" >
-        districtID = #{districtid,jdbcType=INTEGER},
-      </if>
+
       <if test="address != null" >
         address = #{address,jdbcType=VARCHAR},
       </if>
-      <if test="ifbindingwx != null" >
-        ifBindingWX = #{ifbindingwx,jdbcType=BIT},
-      </if>
+
         <if test="cashbalance != null">
             cashbalance =#{cashbalance,jdbcType=INTEGER},
         </if>

@@ -4,7 +4,7 @@ package com.archy.cash.web;
 import com.archy.cash.entity.NetbarMember;
 import com.archy.cash.entity.Result;
 import com.archy.cash.entity.ResultState;
-import com.archy.cash.entity.Tuple.ThreeTuple;
+import com.archy.cash.entity.tuple.ThreeTuple;
 import com.archy.cash.service.OrderService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -41,7 +41,9 @@ public class CashController {
     @RequestMapping("/active")
     @ResponseBody
     private Result active(){
+
         return new Result();
+
     }
 
 

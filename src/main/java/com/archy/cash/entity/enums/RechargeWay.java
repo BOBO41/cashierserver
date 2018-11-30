@@ -1,4 +1,4 @@
-package com.archy.cash.entity.Enum;
+package com.archy.cash.entity.enums;
 
 public enum RechargeWay {
 

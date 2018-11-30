@@ -1,4 +1,4 @@
-package com.archy.cash.entity.Tuple;
+package com.archy.cash.entity.tuple;
 
 public class TwoTuple<A, B> {
     public final A first;

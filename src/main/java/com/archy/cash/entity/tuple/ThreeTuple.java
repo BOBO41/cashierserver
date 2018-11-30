@@ -1,4 +1,4 @@
-package com.archy.cash.entity.Tuple;
+package com.archy.cash.entity.tuple;
 
 public class ThreeTuple<A, B, C> extends TwoTuple<A, B> {
 

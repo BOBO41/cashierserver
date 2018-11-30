@@ -4,6 +4,8 @@ import java.util.*;
 
 import com.archy.cash.dao.interfaces.*;
 import com.archy.cash.entity.*;
+import com.archy.cash.entity.tuple.ThreeTuple;
+import com.archy.cash.entity.tuple.TwoTuple;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -78,6 +80,8 @@ public class CashService {
 
         this.extraCostList = this.netbarExtraCostMapper.selectByGid(gid);
 
+        this.loadOnlineMemberFromDB();
+
     }
 
     public NetbarMember findByAccount(String account){
@@ -98,6 +102,51 @@ public class CashService {
 
 
 
+    }
+
+    public void loadOnlineMemberFromDB(){
+
+
+
+    }
+
+
+    public TwoTuple<Boolean,String> activeMember(String account,Integer billingType,Integer ruleId,String machineName){
+
+        
+
+        return new TwoTuple<>(true,"");
+    }
+
+    public TwoTuple<Boolean,String> memberLogin(String account,String machineName){
+
+
+        return new TwoTuple<>(true,"");
+    }
+
+    public TwoTuple<Boolean,String> logoffMember(String account,Integer userid){
+
+        return new TwoTuple<>(true,"");
+    }
+
+    public TwoTuple<Boolean,String> logoffAllMember(Integer userid){
+
+        return new TwoTuple<>(true,"");
+    }
+
+    public TwoTuple<Boolean,String> memberBeatHeart(String account,String machine){
+
+        return new TwoTuple<>(true,"");
+    }
+
+    public ThreeTuple<Boolean,String,Object> queryOnlineMembers(Integer userid){
+
+        return new ThreeTuple<>(true,null,null);
+    }
+
+    public TwoTuple<Boolean,NetbarMember> queryMember(String account){
+
+        return new TwoTuple<>(true,null);
     }
 
 

@@ -1,9 +1,9 @@
 package com.archy.cash.service;
 
 import com.archy.cash.dao.interfaces.NetbarMemberMapper;
-import com.archy.cash.entity.Enum.SexCode;
+import com.archy.cash.entity.enums.SexCode;
 import com.archy.cash.entity.NetbarMember;
-import com.archy.cash.entity.Tuple.ThreeTuple;
+import com.archy.cash.entity.tuple.ThreeTuple;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 

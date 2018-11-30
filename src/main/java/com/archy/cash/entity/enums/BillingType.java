@@ -1,14 +1,16 @@
-package com.archy.cash.entity.Enum;
+package com.archy.cash.entity.enums;
 
-public enum RechargeType {
+public enum BillingType {
 
-    ACCOUNTCHARGE(1,"账户充值"),
-    DEPOSIT(2,"押金充值"),
+    WEEK_RATE(1,"单机普通"),
+    PERIOD_RATE(2,"单机包时段"),
+    DURATION_RATE(3,"单机包时长"),
     END(100,"未定义");
 
     private int value;
     private String des;
-    private RechargeType(int v,String d){
+
+    private BillingType(int v,String d){
         this.value = v;
         this.des = d;
     }
@@ -20,6 +22,5 @@ public enum RechargeType {
     public String des(){
         return this.des;
     }
-
 
 }

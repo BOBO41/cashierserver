@@ -3,20 +3,18 @@ package com.archy.cash.web;
 import com.archy.cash.entity.NetbarMember;
 import com.archy.cash.entity.Result;
 import com.archy.cash.entity.ResultState;
-import com.archy.cash.entity.Tuple.ThreeTuple;
+import com.archy.cash.entity.tuple.ThreeTuple;
 import com.archy.cash.service.CashService;
 import com.archy.cash.service.MemberService;
 import com.archy.cash.service.OrderService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
-import java.util.ArrayList;
 import java.util.List;
 
 @RequestMapping("/member")
